@@ -11,6 +11,7 @@
         android:id="@+id/onboardingImage"
         android:layout_width="match_parent"
         android:layout_marginHorizontal="24dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/onboarding_1"
         android:layout_height="wrap_content"/>
 

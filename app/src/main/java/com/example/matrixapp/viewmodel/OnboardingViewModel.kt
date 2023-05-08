@@ -3,12 +3,14 @@ package com.example.matrixapp.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.matrixapp.R
 import com.example.matrixapp.model.OnboardingItem
-import java.util.LinkedList
+import java.util.*
 
-class OnboardingViewModel(val app: Application) : AndroidViewModel(app) {
+class OnboardingViewModel(private val app: Application) : AndroidViewModel(app) {
+
+    var isLastPage = MutableLiveData(false)
+    var isOnBoardingPassed = MutableLiveData(false)
 
     val items = LinkedList(
         listOf(
@@ -21,24 +23,20 @@ class OnboardingViewModel(val app: Application) : AndroidViewModel(app) {
                 R.drawable.onboarding_2
             ),
             OnboardingItem(
-                "Прямое подключение без хранения персональных данных \n" +
+                "Прямое подключение без\nхранения персональных данных" +
                         "и логов пользователей",
                 R.drawable.onboarding_3
             ),
-
         )
     )
 
-    var isLastPage = MutableLiveData(false)
 
-    var currentText = app.resources.getString(R.string.skip)
+    fun setIsLastPage(isLast: Boolean) {
+        isLastPage.value = isLast
+    }
 
-    fun nextPage(): OnboardingItem {
-        val removedItem = items.removeFirst()
-        if (items.size == 0) {
-            isLastPage.value = true
-            currentText = app.resources.getString(R.string.go_start)
-        }
-        return removedItem
+    fun setOnboardingPassed() {
+        // prefs logic here
+        isOnBoardingPassed.value = true
     }
 }
