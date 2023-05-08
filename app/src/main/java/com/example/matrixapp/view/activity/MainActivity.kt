@@ -1,4 +1,4 @@
-package com.example.matrixapp.view
+package com.example.matrixapp.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
