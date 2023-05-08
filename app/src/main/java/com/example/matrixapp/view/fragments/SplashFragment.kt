@@ -28,6 +28,7 @@ class SplashFragment : Fragment() {
         lifecycleScope.launch {
             delay(2000)
             findNavController().navigate(R.id.action_splashFragment_to_onBoardingFragment3)
+//            findNavController().navigate(R.id.registrationFragment)
         }
     }
 }
