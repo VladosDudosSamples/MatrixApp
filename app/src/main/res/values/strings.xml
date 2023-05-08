@@ -8,4 +8,12 @@
     <string name="skip">Skip</string>
     <string name="next">Next</string>
     <string name="go_start">Go Start</string>
+    <string name="e_mail">E-mail</string>
+    <string name="your_password">Your password</string>
+    <string name="replace_password">Replace password</string>
+    <string name="i_agree_to_the">I agree to the</string>
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="and">and</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="fish_text">Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt ut\nlabore et dolore magna aliqua.</string>
 </resources>
