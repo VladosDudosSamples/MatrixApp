@@ -12,5 +12,9 @@
     <string name="terms_of_use">Terms of Use</string>
     <string name="and">and</string>
     <string name="privacy_policy">Privacy policy</string>
-    <string name="fish_text">Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt ut\nlabore et dolore magna aliqua.</string>
+    <string name="fish_text">Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt ut\nlabore et dolore magna aliqua.
+    </string>
+     <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="go_start">Go Start</string>
 </resources>
