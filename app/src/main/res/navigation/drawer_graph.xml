@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_graph"
+    app:startDestination="@id/matrixVpmFragment">
+
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.example.matrixapp.view.fragments.LocationFragment"
+        tools:layout="@layout/fragment_location"
+        android:label="fragment_location" />
+    <action
+        android:id="@+id/action_matrixVpmFragment_to_notificationsFragment"
+        app:destination="@id/notificationsFragment" />
+    <action
+        android:id="@+id/action_matrixVpmFragment_to_locationFragment"
+        app:destination="@id/locationFragment" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.example.matrixapp.view.fragments.NotificationsFragment"
+        tools:layout="@layout/fragment_notufications"
+        android:label="fragment_notufications" />
+    <action
+        android:id="@+id/action_matrixVpmFragment_to_partnerFragment"
+        app:destination="@id/partnerFragment" />
+    <action
+        android:id="@+id/action_matrixVpmFragment_to_supportFragment"
+        app:destination="@id/supportFragment" />
+    <fragment
+        android:id="@+id/partnerFragment"
+        android:name="com.example.matrixapp.view.fragments.PartnerFragment"
+        tools:layout="@layout/fragment_partner"
+        android:label="fragment_partner" />
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="com.example.matrixapp.view.fragments.SupportFragment"
+        tools:layout="@layout/fragment_support"
+        android:label="fragment_support" />
+    <fragment
+        android:id="@+id/matrixVpmFragment"
+        android:name="com.example.matrixapp.view.fragments.MatrixVpmFragment"
+        tools:layout="@layout/fragment_matrix_vpm"
+        android:label="fragment_matrix_vpm">
+        <action
+            android:id="@+id/action_matrixVpmFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+        <action
+            android:id="@+id/action_matrixVpmFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_matrixVpmFragment_to_partnerFragment"
+            app:destination="@id/partnerFragment" />
+        <action
+            android:id="@+id/action_matrixVpmFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
+        <action
+            android:id="@+id/action_matrixVpmFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_matrixVpmFragment_to_privacyFragment2"
+            app:destination="@id/privacyFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.matrixapp.view.fragments.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_pricingFragment"
+            app:destination="@id/pricingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/privacyFragment2"
+        android:name="com.example.matrixapp.view.fragments.PrivacyFragment"
+        android:label="fragment_privacy"
+        tools:layout="@layout/fragment_privacy" />
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.matrixapp.view.fragments.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" />
+    <fragment
+        android:id="@+id/pricingFragment"
+        android:name="com.example.matrixapp.view.fragments.PricingFragment"
+        android:label="fragment_pricing"
+        tools:layout="@layout/fragment_pricing" />
+</navigation>
