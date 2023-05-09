@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-  
+    <item android:id="@+id/matrixVpmFragment"
+        android:title="Main"
+        android:icon="@drawable/main_ic"/>
+
+    <item android:id="@+id/notificationsFragment"
+        android:title="Notifications"
+        android:icon="@drawable/notification_ic"/>
+
+    <item android:id="@+id/partnerFragment"
+        android:title="Partner Program"
+        android:icon="@drawable/partner_ic"/>
+
+    <item android:id="@+id/supportFragment"
+        android:title="Support"
+        android:icon="@drawable/support_ic"/>
+
+    <item android:id="@+id/privacyFragment2"
+        android:title="Privacy Policy"
+        android:icon="@drawable/info_ic"/>
+
 </menu>
