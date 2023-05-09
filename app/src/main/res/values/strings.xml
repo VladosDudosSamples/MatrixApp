@@ -17,4 +17,8 @@
      <string name="skip">Skip</string>
     <string name="next">Next</string>
     <string name="go_start">Go Start</string>
+    <string name="main">Main</string>
+    <string name="notifications">Notifications</string>
+    <string name="partner_program">Partner Program</string>
+    <string name="support">Support</string>
 </resources>

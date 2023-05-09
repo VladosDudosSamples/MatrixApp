@@ -4,25 +4,25 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.matrixapp.R
-import com.example.matrixapp.model.OnboardingItem
+import com.example.matrixapp.model.OnBoardingItem
 import java.util.*
 
-class OnboardingViewModel(private val app: Application) : AndroidViewModel(app) {
+class OnBoardingViewModel(private val app: Application) : AndroidViewModel(app) {
 
     var isLastPage = MutableLiveData(false)
     var isOnBoardingPassed = MutableLiveData(false)
 
     val items = LinkedList(
         listOf(
-            OnboardingItem(
+            OnBoardingItem(
                 "Автоматическая смена сервера\nпри потере связи для\nбесперебойного подключения",
                 R.drawable.onboarding_1
             ),
-            OnboardingItem(
+            OnBoardingItem(
                 "Подключение\nв один клик",
                 R.drawable.onboarding_2
             ),
-            OnboardingItem(
+            OnBoardingItem(
                 "Прямое подключение без\nхранения персональных данных" +
                         "и логов пользователей",
                 R.drawable.onboarding_3

@@ -22,11 +22,21 @@
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
+        android:background="@color/black"
+        app:itemVerticalPadding="20dp"
+        app:headerLayout="@layout/drawer_header_layout"
         app:itemIconTint="@color/drawer_selector"
         app:itemBackground="@android:color/transparent"
         app:itemTextColor="@color/drawer_selector"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:menu="@menu/drawer_menu" />
+        app:menu="@menu/drawer_menu" >
+        <FrameLayout
+            android:layout_gravity="bottom"
+            android:layout_marginStart="24dp"
+            android:layout_width="wrap_content"
+            android:background="@drawable/card_premium"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>
