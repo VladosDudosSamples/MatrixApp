@@ -21,4 +21,6 @@
     <string name="notifications">Notifications</string>
     <string name="partner_program">Partner Program</string>
     <string name="support">Support</string>
+    <string name="on_boarding_passed">OnBoardingPassed</string>
+    <string name="login_passed">LoginPassed</string>
 </resources>

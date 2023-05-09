@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.matrixapp.R
+import com.example.matrixapp.app.App
+import com.example.matrixapp.app.DataManager
 import com.example.matrixapp.model.OnBoardingItem
 import java.util.*
 
@@ -35,8 +37,8 @@ class OnBoardingViewModel(private val app: Application) : AndroidViewModel(app) 
         isLastPage.value = isLast
     }
 
-    fun setOnboardingPassed() {
-        // prefs logic here
+    fun setOnBoardingPassed() {
+        App.dm.passOnBoarding()
         isOnBoardingPassed.value = true
     }
 }

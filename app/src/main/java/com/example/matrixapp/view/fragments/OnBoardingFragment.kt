@@ -60,13 +60,13 @@ class OnBoardingFragment : Fragment() {
         with(binding) {
             btnNext.setOnClickListener {
                 if (onboardingViewPager.currentItem == 2) {
-                    viewModel.setOnboardingPassed()
+                    viewModel.setOnBoardingPassed()
                 } else {
                     onboardingViewPager.currentItem = onboardingViewPager.currentItem + 1
                 }
             }
             tvSkip.setOnClickListener {
-                viewModel.setOnboardingPassed()
+                viewModel.setOnBoardingPassed()
             }
         }
     }
