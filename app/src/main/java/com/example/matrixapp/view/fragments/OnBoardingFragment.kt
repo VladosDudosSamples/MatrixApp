@@ -24,7 +24,7 @@ class OnBoardingFragment : Fragment() {
         )
     }
     private val viewModel: OnboardingViewModel by viewModels()
-    private lateinit var onboardingAdapter: OnboardingAdapter
+    private lateinit var onBoardingAdapter: OnboardingAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,7 +51,6 @@ class OnBoardingFragment : Fragment() {
         }
         viewModel.isOnBoardingPassed.observe(viewLifecycleOwner) {
             if (it) {
-                // remove 3
                 findNavController().navigate(R.id.action_onBoardingFragment3_to_registrationFragment)
             }
         }
@@ -61,25 +60,24 @@ class OnBoardingFragment : Fragment() {
         with(binding) {
             btnNext.setOnClickListener {
                 if (onboardingViewPager.currentItem == 2) {
-                    viewModel.setOnboardingPassed()
+                    viewModel.setOnBoardingPassed()
                 } else {
                     onboardingViewPager.currentItem = onboardingViewPager.currentItem + 1
                 }
             }
-            btnNext.setOnClickListener {
-                viewModel.setOnboardingPassed()
+            tvSkip.setOnClickListener {
+                viewModel.setOnBoardingPassed()
             }
         }
     }
 
-    // в utils
     fun Context.dpToPx(dp: Int): Int = (dp * resources.displayMetrics.density).toInt()
 
     private fun initViewPager() {
         binding.onboardingViewPager.apply {
-            onboardingAdapter = OnboardingAdapter(requireActivity())
+            onBoardingAdapter = OnboardingAdapter(requireActivity())
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
-            adapter = onboardingAdapter
+            adapter = onBoardingAdapter
 
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {

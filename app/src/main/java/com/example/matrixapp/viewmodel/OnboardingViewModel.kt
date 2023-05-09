@@ -35,8 +35,7 @@ class OnboardingViewModel(private val app: Application) : AndroidViewModel(app) 
         isLastPage.value = isLast
     }
 
-    fun setOnboardingPassed() {
-        // prefs logic here
+    fun setOnBoardingPassed() {
         isOnBoardingPassed.value = true
     }
 }
