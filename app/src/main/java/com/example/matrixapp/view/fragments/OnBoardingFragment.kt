@@ -66,7 +66,8 @@ class OnBoardingFragment : Fragment() {
                 }
             }
             tvSkip.setOnClickListener {
-                viewModel.setOnBoardingPassed()
+                findNavController().navigate(R.id.action_onBoardingFragment3_to_registrationFragment)
+                //viewModel.setOnBoardingPassed()
             }
         }
     }

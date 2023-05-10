@@ -23,4 +23,11 @@
     <string name="support">Support</string>
     <string name="on_boarding_passed">OnBoardingPassed</string>
     <string name="login_passed">LoginPassed</string>
+    <string name="matrixx_vpn">MATRIXX.VPN</string>
+    <string name="your_location">Your location</string>
+    <string name="ip_address">11.240.222.128</string>
+    <string name="location">Germany, berlin</string>
+    <string name="connected">Connected</string>
+    <string name="no_onnected">No connected</string>
+    <string name="time_sample">56:24:15</string>
 </resources>

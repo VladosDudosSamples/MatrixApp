@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/bntCloseDrawer"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="64dp"
         android:layout_marginTop="12dp"
