@@ -19,4 +19,7 @@
      <string name="skip">Skip</string>
     <string name="next">Next</string>
     <string name="go_start">Go Start</string>
+    <string name="contact_support">Contact support</string>
+    <string name="reset_password">Reset password</string>
+    <string name="enter_your_email_address_and_receive_a_verification_link_to_reset_your_password">Enter your email address and receive a\nverification link to reset your password</string>
 </resources>
