@@ -9,4 +9,5 @@
     <color name="red">#FFFF6161</color>
     <color name="transparent">#00000000</color>
     <color name="greenTransparent">#801DEC5B</color>
+    <color name="black_bottom_sheet">#0A0A0D</color>
 </resources>

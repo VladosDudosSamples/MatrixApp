@@ -5,6 +5,7 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@color/black</item>
         <item name="hintTextColor">@color/grey</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
     <style name="checkBoxStyle" parent="Base.Theme.MatrixApp">
@@ -13,4 +14,12 @@
     </style>
 
     <style name="Theme.MatrixApp" parent="Base.Theme.MatrixApp" />
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle">
+        <item name="android:background">@drawable/bottom_dialog_shape</item>
+    </style>
 </resources>

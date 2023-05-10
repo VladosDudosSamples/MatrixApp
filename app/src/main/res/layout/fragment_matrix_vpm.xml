@@ -253,11 +253,39 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <View
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cheatView"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_height="wrap_content"
+       android:background="@drawable/bottom_dialog_shape"
+        app:layout_constraintBottom_toBottomOf="parent" >
+        <View
+            android:id="@+id/divider"
+            android:layout_width="32dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_divider"
+            app:dividerColor="@color/green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/tactic_round_bold"
+            android:layout_marginBottom="19dp"
+            android:text="Scroll up to see the connection statistics"
+            android:textColor="@color/grey"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
