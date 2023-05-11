@@ -15,6 +15,7 @@ import com.example.matrixapp.utils.OnSwipeTouchListener
 import com.example.matrixapp.view.activity.DrawerActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.sothree.slidinguppanel.SlidingUpPanelLayout
 
 class MatrixVpmFragment : Fragment() {
 
@@ -46,15 +47,14 @@ class MatrixVpmFragment : Fragment() {
                     roundImage.setImageResource(R.drawable.switch_round_on)
                     tvConnected.text = resources.getString(R.string.connected)
                     tvConnectionTime.text = resources.getString(R.string.time_sample)
-                    //cheatView.visibility = View.VISIBLE
-                    //showBottomSheet()
+                    binding.panel.panelState = SlidingUpPanelLayout.PanelState.COLLAPSED;
 
                 } else {
                     imgSwitchBackground.setImageResource(R.drawable.switch_off_back)
                     roundImage.setImageResource(R.drawable.switch_round_off)
                     tvConnected.text = resources.getString(R.string.no_onnected)
                     tvConnectionTime.text = ""
-                    //cheatView.visibility = View.GONE
+                    binding.panel.panelState = SlidingUpPanelLayout.PanelState.HIDDEN;
                 }
             }
 
@@ -62,32 +62,4 @@ class MatrixVpmFragment : Fragment() {
         }
     }
 
-//    private fun showBottomSheet() {
-//        val dialogBinding = ConnectionStatisticsBottomSheetBinding.inflate(layoutInflater)
-//        val dialog = BottomSheetDialog(requireContext())
-//        val view = dialogBinding.root
-//        dialog.setContentView(view)
-//
-//        val behavior = BottomSheetBehavior.from(view.parent as View)
-//        behavior.addBottomSheetCallback(object: BottomSheetBehavior.BottomSheetCallback(){
-//            override fun onStateChanged(bottomSheet: View, newState: Int) {
-//                if(newState == 4){
-//                   behavior.state = BottomSheetBehavior.STATE_HIDDEN
-//                }
-//                Toast.makeText(requireContext(), newState.toString(), Toast.LENGTH_SHORT).show()
-//            }
-//
-//            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-//                //Toast.makeText(requireContext(), "slide", Toast.LENGTH_SHORT).show()
-//            }
-//
-//        })
-//
-//
-//        behavior.peekHeight = (Resources.getSystem().displayMetrics.heightPixels * 0.07).toInt()
-//        view.minimumHeight = (Resources.getSystem().displayMetrics.heightPixels * 0.21).toInt()
-//        behavior.isFitToContents = true
-//
-//        dialog.show()
-//    }
 }

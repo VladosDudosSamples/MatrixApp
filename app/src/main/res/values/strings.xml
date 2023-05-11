@@ -35,4 +35,7 @@
     <string name="connected">Connected</string>
     <string name="no_onnected">No connected</string>
     <string name="time_sample">56:24:15</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="register">Register</string>
 </resources>
