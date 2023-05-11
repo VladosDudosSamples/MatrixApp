@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="12dp"
-    android:layout_height="wrap_content">
+    android:padding="4dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp">
 
     <TextView
         android:id="@+id/title"
@@ -14,6 +15,7 @@
         android:text="@string/privacy_policy"
         android:textColor="@color/white"
         android:textSize="24sp"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,8 +28,8 @@
         android:text="@string/fish_text"
         android:textAlignment="textStart"
         android:textColor="@color/grey"
-        android:lineHeight="20dp"
-        android:textSize="16sp"
+        android:lineHeight="24dp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
         tools:targetApi="p" />
