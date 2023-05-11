@@ -1,5 +1,6 @@
 package com.example.matrixapp.view.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.matrixapp.databinding.PrivacyListViewBinding
 import com.example.matrixapp.model.PrivacyModel
 
-class PrivacyAdapter(private val context: Context, private val listPrivacy: ArrayList<PrivacyModel>) : RecyclerView.Adapter<PrivacyAdapter.PrivacyVH>() {
+class PrivacyAdapter(private val context: Context, private val listPrivacy: List<PrivacyModel>) : RecyclerView.Adapter<PrivacyAdapter.PrivacyVH>() {
 
     class PrivacyVH(val binding: PrivacyListViewBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -22,10 +23,11 @@ class PrivacyAdapter(private val context: Context, private val listPrivacy: Arra
         )
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: PrivacyVH, position: Int) {
         val privacyExample = listPrivacy[position]
 
-        holder.binding.title.text = privacyExample.title
+        holder.binding.title.text = " ${position+1}. ${privacyExample.title}"
         holder.binding.description.text = privacyExample.description
     }
 
