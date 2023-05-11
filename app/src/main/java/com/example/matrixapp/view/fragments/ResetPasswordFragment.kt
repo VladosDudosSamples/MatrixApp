@@ -47,15 +47,15 @@ class ResetPasswordFragment : Fragment() {
     private fun visionEmail(){
         binding.textView2.visibility = View.VISIBLE
         binding.emailEditText.visibility = View.VISIBLE
-        binding.passwordEditText.visibility = View.GONE
-        binding.repeatPasswordEditText.visibility = View.GONE
+        binding.passwordLayout.visibility = View.GONE
+        binding.repeatPasswordLayout.visibility = View.GONE
     }
 
     private fun visionPassword(){
         binding.textView2.visibility = View.GONE
         binding.emailEditText.visibility = View.GONE
-        binding.passwordEditText.visibility = View.VISIBLE
-        binding.repeatPasswordEditText.visibility = View.VISIBLE
+        binding.passwordLayout.visibility = View.VISIBLE
+        binding.repeatPasswordLayout.visibility = View.VISIBLE
     }
     private fun applyClick(){
         binding.resetBtn.setOnClickListener {
