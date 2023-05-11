@@ -66,4 +66,6 @@ dependencies {
 
     //Importing ViewModel
     implementation 'androidx.fragment:fragment-ktx:1.5.7'
+
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
 }

@@ -14,7 +14,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.FragmentOnboardingBinding
 import com.example.matrixapp.view.adapter.OnboardingAdapter
-import com.example.matrixapp.viewmodel.OnBoardingViewModel
+import com.example.matrixapp.viewmodel.OnboardingViewModel
 
 class OnBoardingFragment : Fragment() {
 
@@ -23,7 +23,7 @@ class OnBoardingFragment : Fragment() {
             layoutInflater
         )
     }
-    private val viewModel: OnBoardingViewModel by viewModels()
+    private val viewModel: OnboardingViewModel by viewModels()
     private lateinit var onboardingAdapter: OnboardingAdapter
 
     override fun onCreateView(
@@ -67,12 +67,10 @@ class OnBoardingFragment : Fragment() {
             }
             tvSkip.setOnClickListener {
                 findNavController().navigate(R.id.action_onBoardingFragment3_to_registrationFragment)
-                //viewModel.setOnBoardingPassed()
             }
         }
     }
 
-    // в utils
     fun Context.dpToPx(dp: Int): Int = (dp * resources.displayMetrics.density).toInt()
 
     private fun initViewPager() {

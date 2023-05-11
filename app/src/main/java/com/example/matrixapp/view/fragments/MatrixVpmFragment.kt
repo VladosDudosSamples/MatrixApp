@@ -59,7 +59,7 @@ class MatrixVpmFragment : Fragment() {
             cheatView.setOnTouchListener(object: OnSwipeTouchListener(requireContext()){
                 override fun onSwipeUp() {
                     super.onSwipeUp()
-                    showBottomSheet()
+                    //showBottomSheet()
                 }
             })
         }

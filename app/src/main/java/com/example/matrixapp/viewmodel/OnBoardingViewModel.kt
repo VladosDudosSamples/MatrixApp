@@ -4,27 +4,25 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.matrixapp.R
-import com.example.matrixapp.app.App
-import com.example.matrixapp.app.DataManager
-import com.example.matrixapp.model.OnBoardingItem
+import com.example.matrixapp.model.OnboardingItem
 import java.util.*
 
-class OnBoardingViewModel(private val app: Application) : AndroidViewModel(app) {
+class OnboardingViewModel(private val app: Application) : AndroidViewModel(app) {
 
     var isLastPage = MutableLiveData(false)
     var isOnBoardingPassed = MutableLiveData(false)
 
     val items = LinkedList(
         listOf(
-            OnBoardingItem(
+            OnboardingItem(
                 "Автоматическая смена сервера\nпри потере связи для\nбесперебойного подключения",
                 R.drawable.onboarding_1
             ),
-            OnBoardingItem(
+            OnboardingItem(
                 "Подключение\nв один клик",
                 R.drawable.onboarding_2
             ),
-            OnBoardingItem(
+            OnboardingItem(
                 "Прямое подключение без\nхранения персональных данных" +
                         "и логов пользователей",
                 R.drawable.onboarding_3
@@ -38,7 +36,6 @@ class OnBoardingViewModel(private val app: Application) : AndroidViewModel(app) 
     }
 
     fun setOnBoardingPassed() {
-        App.dm.passOnBoarding()
         isOnBoardingPassed.value = true
     }
 }
