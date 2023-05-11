@@ -66,6 +66,9 @@
         <action
             android:id="@+id/action_resetPasswordFragment_to_supportFragment2"
             app:destination="@id/supportFragment2" />
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/privacyFragment"

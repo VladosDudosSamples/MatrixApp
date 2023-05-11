@@ -9,4 +9,8 @@
     <color name="red">#FFFF6161</color>
     <color name="transparent">#00000000</color>
     <color name="greenTransparent">#801DEC5B</color>
+    <color name="dialogColor">#FF30303F</color>
+    <color name="dialogMessageColor">#FFCAC4D0</color>
+    <color name="dialogBtnColor">#FFD0BCFF</color>
+    <color name="dialogTitleColor">#FFE6E0E9</color>
 </resources>

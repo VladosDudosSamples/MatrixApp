@@ -1,5 +1,8 @@
 package com.example.matrixapp.view.fragments
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import androidx.fragment.app.Fragment
@@ -7,11 +10,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.FragmentResetPasswordBinding
+import com.example.matrixapp.databinding.ResetPasswordDialogLayoutBinding
 import com.example.matrixapp.viewmodel.ResetPasswordViewModel
 
 class ResetPasswordFragment : Fragment() {
@@ -92,6 +97,16 @@ class ResetPasswordFragment : Fragment() {
         }
     }
     private fun resetPassword(){
-
+        val dialogBinding: ResetPasswordDialogLayoutBinding by lazy {ResetPasswordDialogLayoutBinding.inflate(layoutInflater)}
+        val dialog = Dialog(requireContext()).apply {
+            setCancelable(false)
+            setContentView(dialogBinding.root)
+            window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        }
+        dialog.show()
+        dialogBinding.positiveButton.setOnClickListener {
+            findNavController().popBackStack()
+            dialog.cancel()
+        }
     }
 }
