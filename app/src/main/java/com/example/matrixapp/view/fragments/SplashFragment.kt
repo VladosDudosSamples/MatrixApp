@@ -9,6 +9,7 @@ import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.matrixapp.R
+import com.example.matrixapp.app.App
 import com.example.matrixapp.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -27,7 +28,11 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         lifecycleScope.launch {
             delay(2000)
-            findNavController().navigate(R.id.action_splashFragment_to_onBoardingFragment3)
+            if(App.dm.isOnBoardingPassed()){
+                findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            } else{
+                findNavController().navigate(R.id.action_splashFragment_to_onBoardingFragment3)
+            }
         }
     }
 }

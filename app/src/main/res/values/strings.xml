@@ -26,4 +26,6 @@
     <string name="dialogResetTitle">Complete!</string>
     <string name="dialogResetMessage">Your password has been successfully changed!</string>
     <string name="dialogResetPositiveBtnText">Back to the Log In</string>
+    <string name="on_boarding_passed">OnBoardingPassed</string>
+    <string name="login_passed">LoginPassed</string>
 </resources>
