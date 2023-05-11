@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.matrixapp.R
+import com.example.matrixapp.app.App
 import com.example.matrixapp.model.OnboardingItem
 import java.util.*
 
@@ -36,6 +37,7 @@ class OnboardingViewModel(private val app: Application) : AndroidViewModel(app) 
     }
 
     fun setOnBoardingPassed() {
+        App.dm.passOnBoarding()
         isOnBoardingPassed.value = true
     }
 }
