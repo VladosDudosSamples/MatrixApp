@@ -35,7 +35,6 @@ class OnboardingItemFragment : Fragment() {
             onboardingImage.setImageResource(item.image)
         }
     }
-
     companion object {
         fun newInstance(position: Int): OnboardingItemFragment {
             return OnboardingItemFragment().apply {
@@ -43,6 +42,4 @@ class OnboardingItemFragment : Fragment() {
             }
         }
     }
-
-
 }
