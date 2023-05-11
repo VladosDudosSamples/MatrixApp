@@ -22,4 +22,8 @@
     <string name="contact_support">Contact support</string>
     <string name="reset_password">Reset password</string>
     <string name="enter_your_email_address_and_receive_a_verification_link_to_reset_your_password">Enter your email address and receive a\nverification link to reset your password</string>
+
+    <string name="dialogResetTitle">Complete!</string>
+    <string name="dialogResetMessage">Your password has been successfully changed!</string>
+    <string name="dialogResetPositiveBtnText">Back to the Log In</string>
 </resources>
