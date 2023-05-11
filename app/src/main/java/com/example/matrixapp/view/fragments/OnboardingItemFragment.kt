@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.matrixapp.databinding.FragmentOnboardingItemBinding
-import com.example.matrixapp.viewmodel.OnBoardingViewModel
+import com.example.matrixapp.viewmodel.OnboardingViewModel
 
 
 class OnboardingItemFragment : Fragment() {
@@ -16,7 +16,7 @@ class OnboardingItemFragment : Fragment() {
         FragmentOnboardingItemBinding.inflate(layoutInflater)
     }
 
-    private val viewModel: OnBoardingViewModel by viewModels()
+    private val viewModel: OnboardingViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
