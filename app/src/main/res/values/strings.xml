@@ -28,4 +28,8 @@
     <string name="dialogResetPositiveBtnText">Back to the Log In</string>
     <string name="on_boarding_passed">OnBoardingPassed</string>
     <string name="login_passed">LoginPassed</string>
+    <string name="main">Main</string>
+    <string name="notifications">Notifcations</string>
+    <string name="partner_program">Partner program</string>
+    <string name="support">Support</string>
 </resources>
