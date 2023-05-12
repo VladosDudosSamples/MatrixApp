@@ -39,4 +39,7 @@
     <string name="no_connected">No connected</string>
     <string name="connected">Connected</string>
     <string name="time_sample">56:24:15</string>
+
+    <string name="payment_is_made">Payment is made..</string>
+    <string name="buy">Buy</string>
 </resources>

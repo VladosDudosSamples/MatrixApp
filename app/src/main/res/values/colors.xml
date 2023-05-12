@@ -14,4 +14,6 @@
     <color name="dialogBtnColor">#FFD0BCFF</color>
     <color name="dialogTitleColor">#FFE6E0E9</color>
     <color name="black_bottom_sheet">#0A0A0D</color>
+
+    <color name="payment_dialog_back">#FF101015</color>
 </resources>

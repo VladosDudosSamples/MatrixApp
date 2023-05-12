@@ -13,4 +13,8 @@
     </style>
 
     <style name="Theme.MatrixApp" parent="Base.Theme.MatrixApp" />
+
+    <style name="progressBarStyle" parent="Base.Theme.MatrixApp">
+        <item name="colorAccent">@color/green</item>
+    </style>
 </resources>
