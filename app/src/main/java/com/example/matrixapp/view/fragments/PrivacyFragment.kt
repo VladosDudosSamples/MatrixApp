@@ -28,6 +28,7 @@ class PrivacyFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setRecyclerAdapter()
+        applyClick()
     }
     private fun setRecyclerAdapter(){
         binding.privacyRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
