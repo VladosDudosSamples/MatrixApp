@@ -13,4 +13,5 @@
     <color name="dialogMessageColor">#FFCAC4D0</color>
     <color name="dialogBtnColor">#FFD0BCFF</color>
     <color name="dialogTitleColor">#FFE6E0E9</color>
+    <color name="black_bottom_sheet">#0A0A0D</color>
 </resources>
