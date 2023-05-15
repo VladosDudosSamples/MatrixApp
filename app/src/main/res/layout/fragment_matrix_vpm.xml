@@ -27,7 +27,6 @@
             app:layout_constraintGuide_percent="0.0147" />
 
         <LinearLayout
-            android:background="@drawable/location_card_shape"
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,6 +102,7 @@
                 app:dividerColor="@color/white" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imageConstraintLayout"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_marginHorizontal="32dp">
