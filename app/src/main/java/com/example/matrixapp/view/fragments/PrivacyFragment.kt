@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.matrixapp.databinding.FragmentPrivacyBinding
-import com.example.matrixapp.view.adapters.PrivacyAdapter
+import com.example.matrixapp.view.adapter.PrivacyAdapter
 import com.example.matrixapp.viewmodel.PrivacyViewModel
 
 class PrivacyFragment : Fragment() {

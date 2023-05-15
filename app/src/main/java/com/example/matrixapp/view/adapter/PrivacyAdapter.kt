@@ -1,4 +1,4 @@
-package com.example.matrixapp.view.adapters
+package com.example.matrixapp.view.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context

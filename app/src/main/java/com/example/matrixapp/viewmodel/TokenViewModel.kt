@@ -15,15 +15,4 @@ import io.reactivex.schedulers.Schedulers
 class TokenViewModel(val app: Application) : AndroidViewModel(app){
     private val vpnToken = MutableLiveData<String>()
     val token = vpnToken
-
-//    fun getTokenFromApi() {
-//        val disposableToken = ApiRepository().getToken()
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe({
-//                App.dm.encryptToken(it.key)
-//            }, {
-//                Log.d("Error ApiToken", it.message.toString())
-//            })
-//    }
 }

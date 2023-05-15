@@ -17,4 +17,8 @@
     <style name="progressBarStyle" parent="Base.Theme.MatrixApp">
         <item name="colorAccent">@color/green</item>
     </style>
+
+    <style name="PremiumTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/mtrl_textinput_default_box_stroke_color</item>
+    </style>
 </resources>

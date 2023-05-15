@@ -42,4 +42,25 @@
 
     <string name="payment_is_made">Payment is made..</string>
     <string name="buy">Buy</string>
+    <string name="my_account">My account</string>
+    <string name="test_email_string">andrey123@gmail.com</string>
+    <string name="device">Device</string>
+    <string name="status">Status</string>
+    <string name="activated">Activated</string>
+    <string name="no_active">No active</string>
+    <string name="pricing">Pricing</string>
+    <string name="restore_password">Restore password</string>
+    <string name="payments">Payments</string>
+    <string name="receive_notifications_when_order_status_changes">Receive notifications when order status changes</string>
+    <string name="receive_matrixx_news_alerts">Receive Matrixx news alerts</string>
+    <string name="receive_system_notifications">Receive system notifications</string>
+    <string name="go_premium">Go Premium</string>
+    <string name="fast_stable_reliable">Fast, stable, reliable</string>
+    <string name="premium_activation">Premium activation</string>
+    <string name="please_enter_the_key_you_have_received_after_payment">Please enter the key you have received after payment</string>
+    <string name="label">Label</string>
+    <string name="continue_string">Continue</string>
+    <string name="close">Close</string>
+
+    <string name="activation_failed">Activation failed</string>
 </resources>
