@@ -103,6 +103,7 @@ class ResetPasswordFragment : Fragment() {
             setContentView(dialogBinding.root)
             window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         }
+
         dialog.show()
         dialogBinding.positiveButton.setOnClickListener {
             findNavController().popBackStack()
