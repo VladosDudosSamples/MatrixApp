@@ -27,6 +27,7 @@
             app:layout_constraintGuide_percent="0.0147" />
 
         <LinearLayout
+            android:background="@drawable/location_card_shape"
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -199,9 +200,9 @@
             android:id="@+id/constraintLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/guideline6"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+            app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
                 android:id="@+id/imgSwitchBackground"
@@ -222,7 +223,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.521" />
 
             <Switch
                 android:id="@+id/switchOnOff"
@@ -266,6 +268,15 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.93" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -292,7 +303,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/tactic_round_bold"
             android:text="Scroll up to see the connection statistics"
             android:textColor="@color/grey"
@@ -305,6 +316,7 @@
             android:id="@+id/scrollableView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             app:layout_constraintTop_toBottomOf="@id/textView6">
 
             <ImageView
@@ -312,7 +324,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28.5dp"
-                android:layout_marginTop="32dp"
                 android:src="@drawable/download_ic"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -360,18 +371,15 @@
                 app:layout_constraintStart_toStartOf="@+id/downloadLayout"
                 app:layout_constraintTop_toBottomOf="@id/downloadLayout" />
 
-
             <ImageView
                 android:id="@+id/upload"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
                 android:layout_marginEnd="12dp"
                 android:rotation="180"
                 android:src="@drawable/download_ic"
                 app:layout_constraintEnd_toStartOf="@+id/uploadLayout"
-                app:layout_constraintTop_toTopOf="parent"/>
-
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:id="@+id/uploadLayout"
@@ -418,13 +426,6 @@
                 app:layout_constraintTop_toBottomOf="@id/uploadLayout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <androidx.constraintlayout.widget.Guideline
-            android:layout_width="wrap_content"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content"/>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
