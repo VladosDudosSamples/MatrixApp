@@ -8,7 +8,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.ActivityDrawerBinding
-
 class DrawerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDrawerBinding

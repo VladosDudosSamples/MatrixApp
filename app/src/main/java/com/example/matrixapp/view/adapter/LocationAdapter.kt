@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.LocationCardBinding
+import com.example.matrixapp.model.City
 import com.example.matrixapp.model.Location
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -19,7 +20,7 @@ class LocationAdapter(
     val context: Context,
     var locations: List<Location>,
     val isLocked: Boolean,
-    val onCardClickListener: (Location) -> Unit = {},
+    val onCardClickListener: (City) -> Unit = {},
 ) : RecyclerView.Adapter<LocationAdapter.LocationHolder>() {
     class LocationHolder(val binding: LocationCardBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -37,19 +38,36 @@ class LocationAdapter(
         return locations.size
     }
 
-    @SuppressLint("ResourceAsColor")
+    @SuppressLint("ResourceAsColor", "NotifyDataSetChanged")
     override fun onBindViewHolder(holder: LocationHolder, position: Int) {
         val location = locations[position]
+        val citiesAdapter = CityAdapter(
+            location.cities,
+            context,
+            false,
+            onClick = {
+                onCardClickListener(it)
+            }
+        )
         with(holder.binding) {
             tvCountry.text = location.countryName
-            radioButtonConnected.isChecked = location.isSelected
-            setStrokeColor(location.isSelected, holder)
-            if (location.isSelected) {
+            rvCities.adapter = citiesAdapter
+            rvCities.adapter!!.notifyDataSetChanged()
+            radioButtonConnected.isChecked = location.cities.any { it.isSelected }
+            setStrokeColor(location.cities.any { it.isSelected }, holder)
+            if (location.cities.any { it.isSelected }) {
                 GlobalScope.launch {
                     delay(25)
                     root.strokeColor = ContextCompat.getColor(context, R.color.green)
                 }
             }
+//            if (location.isExposed) {
+//                rvCities.visibility = View.VISIBLE
+//                imageStatus.rotation = 180F
+//            } else {
+//                rvCities.visibility = View.GONE
+//                imageStatus.rotation = 0F
+//            }
             if (location.cities.size == 1) {
                 tvCity.text = location.cities[0].name
                 if (isLocked) {
@@ -65,26 +83,45 @@ class LocationAdapter(
                 radioButtonConnected.visibility = View.GONE
             }
             root.setOnClickListener {
-                if (!isLocked) {
-                    if (location.cities.size > 1) {
-                        if (rvCities.visibility == View.VISIBLE) {
-                            imageStatus.rotation = 180F
-                            rvCities.visibility = View.GONE
-                        } else {
-                            imageStatus.rotation = 0F
+
+                if (location.cities.size > 1) {
+                    location.isExposed = true
+                    if (rvCities.visibility == View.GONE) {
+                        imageStatus.rotation = 180F
+                        rvCities.visibility = View.VISIBLE
+                        if (isLocked) {
                             with(rvCities) {
-                                visibility = View.VISIBLE
-                                adapter = CityAdapter(location.cities, context)
+                                adapter = CityAdapter(
+                                    location.cities,
+                                    context,
+                                    true
+                                )
+                                layoutManager = LinearLayoutManager(context)
+                            }
+                        } else {
+                            with(rvCities) {
+                                adapter = citiesAdapter
                                 layoutManager = LinearLayoutManager(context)
                             }
                         }
                     } else {
-                        onCardClickListener(location)
+                        imageStatus.rotation = 0F
+                        rvCities.visibility = View.GONE
+                    }
+                } else {
+                    if (isLocked) {
+
+                    } else {
+                        onCardClickListener(location.cities[0])
+                        notifyDataSetChanged()
+                        updateList(locations)
+                        citiesAdapter.notifyDataSetChanged()
                     }
                 }
             }
         }
     }
+
 
     private fun setStrokeColor(selected: Boolean, holder: LocationHolder) {
         if (!selected) {
@@ -92,7 +129,9 @@ class LocationAdapter(
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateList(list: List<Location>) {
         this.locations = list
+        notifyDataSetChanged()
     }
 }

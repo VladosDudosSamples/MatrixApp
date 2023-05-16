@@ -1,6 +1,7 @@
 package com.example.matrixapp.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.matrixapp.model.City
@@ -15,7 +16,7 @@ class LocationViewModel(app: Application) : AndroidViewModel(app) {
         Location(
             "Japan",
             listOf(
-                City("Tokyo"),
+                City("Tokyo", false),
             ),
             "",
             false
@@ -23,10 +24,10 @@ class LocationViewModel(app: Application) : AndroidViewModel(app) {
         Location(
             "USA",
             listOf(
-                City("Detroit"),
-                City("New York"),
-                City("Chicago"),
-                City("Los Angeles"),
+                City("Detroit", false),
+                City("New York", false),
+                City("Chicago", false),
+                City("Los Angeles", false),
             ),
             "",
             false
@@ -34,7 +35,7 @@ class LocationViewModel(app: Application) : AndroidViewModel(app) {
         Location(
             "Russia",
             listOf(
-                City("Moscow"),
+                City("Moscow", false),
             ),
             "",
             false
@@ -42,8 +43,8 @@ class LocationViewModel(app: Application) : AndroidViewModel(app) {
         Location(
             "Germany",
             listOf(
-                City("Berlin"),
-                City("Leipzig"),
+                City("Berlin", false),
+                City("Leipzig", false),
             ),
             "",
             false
@@ -54,25 +55,26 @@ class LocationViewModel(app: Application) : AndroidViewModel(app) {
         Location(
             "Turkey",
             listOf(
-                City("Ankara"),
+                City("Ankara", true),
             ),
             "",
-            true
+            false
         ),
+
         Location(
             "USA",
             listOf(
-                City("Detroit"),
-                City("New York"),
+                City("Detroit", false),
+                City("New York", false),
 
-            ),
+                ),
             "",
             false
         ),
         Location(
             "Russia",
             listOf(
-                City("Kazan"),
+                City("Kazan", false),
             ),
             "",
             false
@@ -80,8 +82,8 @@ class LocationViewModel(app: Application) : AndroidViewModel(app) {
         Location(
             "Italy",
             listOf(
-                City("Rome"),
-                City("Piza"),
+                City("Rome", false),
+                City("Piza", false),
             ),
             "",
             false
@@ -93,7 +95,26 @@ class LocationViewModel(app: Application) : AndroidViewModel(app) {
         freeLocations.value = freeLocationsList
     }
 
-    fun selectLocation(location: Location){
-        location.isSelected = true
+    fun selectLocation(city: City): City {
+        freeLocations.value?.forEach { it ->
+            it.isExposed = false
+            it.cities.forEach {
+                if (it != city) {
+                    it.isSelected = false
+                }
+            }
+        }
+        privateLocations.value?.forEach { it ->
+            it.cities.forEach {
+                if (it != city) {
+                    it.isSelected = false
+                }
+            }
+        }
+        if(!city.isSelected){
+            city.isSelected = true
+        }
+        Log.d("list", freeLocationsList.toString())
+        return city
     }
 }

@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.matrixapp.databinding.FragmentLocationBinding
+import com.example.matrixapp.model.City
 import com.example.matrixapp.view.adapter.LocationAdapter
 import com.example.matrixapp.viewmodel.LocationViewModel
 
@@ -47,22 +49,16 @@ class LocationFragment : Fragment() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun onItemClick(location: com.example.matrixapp.model.Location) {
-        viewModel.privateLocations.value!!.forEach {
-            if (it != location)
-                it.isSelected = false
-        }
-        viewModel.freeLocations.value!!.forEach {
-            if (it != location)
-                it.isSelected = false
-        }
+    private fun onItemClick(city: City) {
+        val selected = viewModel.selectLocation(city)
         binding.rvFreeLocations.post {
             freeLocationsAdapter.notifyDataSetChanged()
         }
         binding.rvPremiumLocations.post {
             privateLocationsAdapter.notifyDataSetChanged()
         }
-        viewModel.selectLocation(location)
+
+        Toast.makeText(requireContext(), "selected: $selected", Toast.LENGTH_SHORT).show()
     }
 
     private fun initPrivateLocationsAdapter() {
