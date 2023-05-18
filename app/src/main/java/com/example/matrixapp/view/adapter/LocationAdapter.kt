@@ -18,8 +18,8 @@ import kotlinx.coroutines.launch
 
 class LocationAdapter(
     val context: Context,
-    var locations: List<Location>,
-    val isLocked: Boolean,
+    private var locations: List<Location>,
+    private val isLocked: Boolean,
     val onCardClickListener: (City) -> Unit = {},
 ) : RecyclerView.Adapter<LocationAdapter.LocationHolder>() {
     class LocationHolder(val binding: LocationCardBinding) : RecyclerView.ViewHolder(binding.root)

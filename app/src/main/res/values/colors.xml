@@ -21,4 +21,8 @@
     <color name="green_transparent">#331DEC5B</color>
 
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">@color/purple</color>
+
+
+    <color name="pricing_card_stroke">#FF2D2D3B</color>
+    <color name="pricing_card_background">#FF24262E</color>
 </resources>
