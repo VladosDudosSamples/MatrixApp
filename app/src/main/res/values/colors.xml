@@ -19,6 +19,8 @@
     <color name="blue_transparent">#33385BD8</color>
     <color name="red_transparent">#33FF6161</color>
     <color name="green_transparent">#331DEC5B</color>
+    <color name="delete_notifications_dialog_background">#2B2930</color>
+
 
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">@color/purple</color>
 </resources>

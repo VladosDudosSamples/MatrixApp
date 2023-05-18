@@ -63,4 +63,5 @@
     <string name="close">Close</string>
 
     <string name="activation_failed">Activation failed</string>
+    <string name="notifications_big">NOTIFICATIONS</string>
 </resources>

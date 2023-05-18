@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/notification_type_frame">
+
+        <ImageView
+            android:id="@+id/imageTypeOfNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/coin_ic" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvNotificationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/tactic_round_bold"
+            android:lineSpacingMultiplier="1.2"
+            android:text="The subscription has been extended!"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tvNotificationContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/tactic_round_bold"
+            android:lineSpacingMultiplier="1.2"
+            android:maxLines="2"
+            android:text="On 22 May, a $10 subscription fee will be charged..."
+            android:textColor="@color/grey"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvNotificationDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/tactic_round_bold"
+        android:text="12 May"
+        android:textColor="@color/grey"
+        android:textSize="12sp" />
+
+
+</LinearLayout>

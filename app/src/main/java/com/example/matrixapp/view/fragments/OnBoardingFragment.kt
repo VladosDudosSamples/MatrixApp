@@ -1,6 +1,5 @@
 package com.example.matrixapp.view.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.FragmentOnboardingBinding
+import com.example.matrixapp.utils.Utils.dpToPx
 import com.example.matrixapp.view.adapter.OnboardingAdapter
 import com.example.matrixapp.viewmodel.OnboardingViewModel
 
@@ -70,8 +70,6 @@ class OnBoardingFragment : Fragment() {
             }
         }
     }
-
-    fun Context.dpToPx(dp: Int): Int = (dp * resources.displayMetrics.density).toInt()
 
     private fun initViewPager() {
         binding.onboardingViewPager.apply {
