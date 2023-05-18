@@ -64,6 +64,9 @@ class MatrixVpmFragment : Fragment() {
             btnProfile.setOnClickListener {
                 findNavController().navigate(R.id.action_matrixVpmFragment_to_accountFragment)
             }
+            imageConstraintLayout.setOnClickListener{
+                findNavController().navigate(R.id.action_matrixVpmFragment_to_locationFragment)
+            }
         }
     }
 }
