@@ -1,19 +1,471 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.fragments.PricingFragment"
-    android:padding="16dp">
+    android:background="@drawable/pricing_background"
+    android:padding="16dp"
+    tools:context=".view.fragments.PricingFragment">
 
     <ImageView
         android:id="@+id/closePricingBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:src="@drawable/close_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/furore_font"
+        android:text="@string/pricing"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/closePricingBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/closePricingBtn" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/freeCardView"
+        android:layout_width="0dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/pricing_card_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/closePricingBtn"
+        app:layout_constraintTop_toBottomOf="@+id/closePricingBtn"
+        app:shapeAppearance="@style/ImageCut"
+        app:strokeColor="@color/pricing_card_stroke">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/freeRb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@null"
+                android:buttonTint="@color/green"
+                android:clickable="false"
+                android:gravity="start|center"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewToHide"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/round_shape_radio"
+                app:layout_constraintBottom_toBottomOf="@+id/freeRb"
+                app:layout_constraintStart_toStartOf="@+id/freeRb"
+                app:layout_constraintTop_toTopOf="@+id/freeRb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/furore_font"
+                android:text="@string/free"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/freeRb"
+                app:layout_constraintStart_toEndOf="@+id/freeRb"
+                app:layout_constraintTop_toTopOf="@+id/freeRb" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/done"
+                app:layout_constraintEnd_toEndOf="@+id/viewToHide"
+                app:layout_constraintStart_toStartOf="@+id/freeRb"
+                app:layout_constraintTop_toBottomOf="@+id/freeRb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tactic_round_bold"
+                android:text="@string/access_for_n_days"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                app:layout_constraintStart_toEndOf="@+id/freeRb"
+                app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/done"
+                app:layout_constraintEnd_toEndOf="@+id/viewToHide"
+                app:layout_constraintStart_toStartOf="@+id/freeRb"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tactic_round_bold"
+                android:text="@string/no_traffic_restriction"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                app:layout_constraintStart_toEndOf="@+id/freeRb"
+                app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/done"
+                app:layout_constraintEnd_toEndOf="@+id/viewToHide"
+                app:layout_constraintStart_toStartOf="@+id/freeRb"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tactic_round_bold"
+                android:text="@string/_1_connect"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                app:layout_constraintStart_toEndOf="@+id/freeRb"
+                app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/baseCardView"
+        android:layout_width="0dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/pricing_card_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/closePricingBtn"
+        app:layout_constraintTop_toBottomOf="@+id/freeCardView"
+        app:shapeAppearance="@style/ImageCut"
+        app:strokeColor="@color/pricing_card_stroke">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/baseRb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@null"
+                android:buttonTint="@color/green"
+                android:clickable="false"
+                android:gravity="start|center"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewToHideBase"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/round_shape_radio"
+                app:layout_constraintBottom_toBottomOf="@+id/baseRb"
+                app:layout_constraintStart_toStartOf="@+id/baseRb"
+                app:layout_constraintTop_toTopOf="@+id/baseRb" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/furore_font"
+                android:text="@string/base"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/baseRb"
+                app:layout_constraintStart_toEndOf="@+id/baseRb"
+                app:layout_constraintTop_toTopOf="@+id/baseRb" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/done"
+                app:layout_constraintEnd_toEndOf="@+id/viewToHideBase"
+                app:layout_constraintStart_toStartOf="@+id/baseRb"
+                app:layout_constraintTop_toBottomOf="@+id/baseRb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/furore_font"
+                android:text="@string/base_price"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tactic_round_bold"
+                android:text="@string/without_selecting_a_location_server"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                app:layout_constraintStart_toEndOf="@+id/baseRb"
+                app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/done"
+                app:layout_constraintEnd_toEndOf="@+id/viewToHideBase"
+                app:layout_constraintStart_toStartOf="@+id/baseRb"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tactic_round_bold"
+                android:text="@string/_1_connect"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+                app:layout_constraintStart_toEndOf="@+id/baseRb"
+                app:layout_constraintTop_toTopOf="@+id/imageView7" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/premiumCardView"
+        android:layout_width="0dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/pricing_card_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/closePricingBtn"
+        app:layout_constraintTop_toBottomOf="@+id/baseCardView"
+        app:shapeAppearance="@style/ImageCut"
+        app:strokeColor="@color/pricing_card_stroke">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/premiumRb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@null"
+                android:buttonTint="@color/green"
+                android:clickable="false"
+                android:gravity="start|center"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewToHidePremium"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/round_shape_radio"
+                app:layout_constraintBottom_toBottomOf="@+id/premiumRb"
+                app:layout_constraintStart_toStartOf="@+id/premiumRb"
+                app:layout_constraintTop_toTopOf="@+id/premiumRb" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/furore_font"
+                android:text="@string/premium"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/premiumRb"
+                app:layout_constraintStart_toEndOf="@+id/premiumRb"
+                app:layout_constraintTop_toTopOf="@+id/premiumRb" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/done"
+                app:layout_constraintEnd_toEndOf="@+id/viewToHidePremium"
+                app:layout_constraintStart_toStartOf="@+id/premiumRb"
+                app:layout_constraintTop_toBottomOf="@+id/premiumRb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/furore_font"
+                android:text="@string/premium_price"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tactic_round_bold"
+                android:text="@string/choosing_a_location"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+                app:layout_constraintStart_toEndOf="@+id/premiumRb"
+                app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/done"
+                app:layout_constraintEnd_toEndOf="@+id/viewToHidePremium"
+                app:layout_constraintStart_toStartOf="@+id/premiumRb"
+                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tactic_round_bold"
+                android:text="@string/_10_connects"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+                app:layout_constraintStart_toEndOf="@+id/premiumRb"
+                app:layout_constraintTop_toTopOf="@+id/imageView9" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/individualCardView"
+        android:layout_width="0dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/pricing_card_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/closePricingBtn"
+        app:layout_constraintTop_toBottomOf="@+id/premiumCardView"
+        app:shapeAppearance="@style/ImageCut"
+        app:strokeColor="@color/pricing_card_stroke">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/individualRb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@null"
+                android:buttonTint="@color/green"
+                android:clickable="false"
+                android:gravity="start|center"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewToHideIndividual"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/round_shape_radio"
+                app:layout_constraintBottom_toBottomOf="@+id/individualRb"
+                app:layout_constraintStart_toStartOf="@+id/individualRb"
+                app:layout_constraintTop_toTopOf="@+id/individualRb" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/furore_font"
+                android:text="@string/individual"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/individualRb"
+                app:layout_constraintStart_toEndOf="@+id/individualRb"
+                app:layout_constraintTop_toTopOf="@+id/individualRb" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/done"
+                app:layout_constraintEnd_toEndOf="@+id/viewToHideIndividual"
+                app:layout_constraintStart_toStartOf="@+id/individualRb"
+                app:layout_constraintTop_toBottomOf="@+id/individualRb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/furore_font"
+                android:text="@string/premium_price"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tactic_round_bold"
+                android:text="@string/choosing_a_location"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                app:layout_constraintStart_toEndOf="@+id/individualRb"
+                app:layout_constraintTop_toTopOf="@+id/imageView10" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/done"
+                app:layout_constraintEnd_toEndOf="@+id/viewToHideIndividual"
+                app:layout_constraintStart_toStartOf="@+id/individualRb"
+                app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tactic_round_bold"
+                android:text="@string/_10_connects"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+                app:layout_constraintStart_toEndOf="@+id/individualRb"
+                app:layout_constraintTop_toTopOf="@+id/imageView11" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buyBtn"

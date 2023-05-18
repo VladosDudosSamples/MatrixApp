@@ -63,4 +63,16 @@
     <string name="close">Close</string>
 
     <string name="activation_failed">Activation failed</string>
+    <string name="free">Free</string>
+    <string name="access_for_n_days">Access for N days</string>
+    <string name="no_traffic_restriction">No traffic restriction</string>
+    <string name="_1_connect">1 Connect</string>
+    <string name="base">Base</string>
+    <string name="without_selecting_a_location_server">Without selecting a location (server)</string>
+    <string name="base_price">10,50$</string>
+    <string name="premium">Premium</string>
+    <string name="premium_price">20,50$</string>
+    <string name="choosing_a_location">Choosing a location (server)</string>
+    <string name="_10_connects">10 Connects</string>
+    <string name="individual">Individual</string>
 </resources>
