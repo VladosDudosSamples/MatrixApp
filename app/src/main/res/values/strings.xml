@@ -75,4 +75,16 @@
     <string name="choosing_a_location">Choosing a location (server)</string>
     <string name="_10_connects">10 Connects</string>
     <string name="individual">Individual</string>
+    <string name="bring_a_friend_and_get_10_days_free_use">Bring a friend\nand get 10 days\nfree use</string>
+    <string name="share_link">Share link</string>
+    <string name="participate">Participate</string>
+    <string name="lvl">Lvl</string>
+    <string name="reward">Reward</string>
+    <string name="_1">1</string>
+    <string name="_10">10%</string>
+    <string name="_2">2</string>
+    <string name="_20">20%</string>
+    <string name="_3">3</string>
+    <string name="_30">30%</string>
+    <string name="terms_and_conditions">Terms and conditions</string>
 </resources>

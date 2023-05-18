@@ -31,7 +31,14 @@
         android:id="@+id/partnerFragment"
         android:name="com.example.matrixapp.view.fragments.PartnerFragment"
         tools:layout="@layout/fragment_partner"
-        android:label="fragment_partner" />
+        android:label="fragment_partner" >
+        <action
+            android:id="@+id/action_partnerFragment_to_privacyFragment2"
+            app:destination="@id/privacyFragment2" />
+        <action
+            android:id="@+id/action_partnerFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
     <fragment
         android:id="@+id/supportFragment"
         android:name="com.example.matrixapp.view.fragments.SupportFragment"
