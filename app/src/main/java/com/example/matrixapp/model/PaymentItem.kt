@@ -3,6 +3,7 @@ package com.example.matrixapp.model
 import java.time.LocalDate
 
 data class PaymentItem(
+    var id: Int,
     var title : String,
     var description: String,
     var type: Int,
