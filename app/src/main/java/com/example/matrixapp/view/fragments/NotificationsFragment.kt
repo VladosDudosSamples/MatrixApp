@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.DeleteNotificationsDialogBinding
@@ -44,7 +45,7 @@ class NotificationsFragment : Fragment() {
         applySwipeHelper()
     }
 
-    private fun applySwipeHelper(){
+    private fun applySwipeHelper() {
         object : SwipeHelper(requireContext(), binding.rvNotificationsByDate, false) {
             override fun instantiateUnderlayButton(
                 viewHolder: RecyclerView.ViewHolder?,
@@ -64,33 +65,40 @@ class NotificationsFragment : Fragment() {
         }
     }
 
-    private fun setObservers(){
-        viewModel.notifications.observe(viewLifecycleOwner){
+    private fun setObservers() {
+        viewModel.notifications.observe(viewLifecycleOwner) {
             notificationAdapter.updateList(it)
         }
     }
 
-    private fun applyClick(){
-        with(binding){
-            btnOpenDrawer.setOnClickListener{
+    private fun applyClick() {
+        with(binding) {
+            btnOpenDrawer.setOnClickListener {
                 (requireActivity() as DrawerActivity).openDrawer()
             }
-            tvClearAllNotifications.setOnClickListener{
+            tvClearAllNotifications.setOnClickListener {
                 showDeletionDialog()
             }
-            tvSortOption.setOnClickListener{
+            tvSortOption.setOnClickListener {
 
+            }
+            btnProfile.setOnClickListener {
+                findNavController()
             }
         }
     }
 
-    private fun showSortMenu(){
+    private fun showSortMenu() {
 
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun showDeletionDialog(){
-        val dialogBinding: DeleteNotificationsDialogBinding by lazy { DeleteNotificationsDialogBinding.inflate(layoutInflater)}
+    private fun showDeletionDialog() {
+        val dialogBinding: DeleteNotificationsDialogBinding by lazy {
+            DeleteNotificationsDialogBinding.inflate(
+                layoutInflater
+            )
+        }
         val dialog = Dialog(requireContext()).apply {
             setCancelable(false)
             setContentView(dialogBinding.root)
@@ -107,7 +115,7 @@ class NotificationsFragment : Fragment() {
         dialog.show()
     }
 
-    private fun initNotificationAdapter(){
+    private fun initNotificationAdapter() {
         notificationAdapter = NotificationAdapter(requireContext(), listOf())
         binding.rvNotificationsByDate.apply {
             adapter = notificationAdapter

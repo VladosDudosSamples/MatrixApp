@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="64dp"
     android:layout_marginBottom="24dp"
     android:orientation="horizontal">
 
@@ -30,8 +30,11 @@
             android:id="@+id/tvNotificationTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:fontFamily="@font/tactic_round_bold"
-            android:lineSpacingMultiplier="1.2"
+            android:layout_marginEnd="4dp"
+            android:lineSpacingMultiplier="1.3"
             android:text="The subscription has been extended!"
             android:textColor="@color/white" />
 
@@ -39,19 +42,29 @@
             android:id="@+id/tvNotificationContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="6dp"
             android:ellipsize="end"
             android:fontFamily="@font/tactic_round_bold"
-            android:lineSpacingMultiplier="1.2"
+            android:lineSpacingMultiplier="1.3"
+            android:maxLength="49"
             android:maxLines="2"
-            android:text="On 22 May, a $10 subscription fee will be charged..."
+            android:text="On 22 May, a $10 subscription fee will be charged"
             android:textColor="@color/grey"
             android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+
+            android:textSize="12sp"
+            android:fontFamily="@font/tactic_round_bold"
+            android:textColor="@color/green"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/tvNotificationDate"
+        android:paddingEnd="24dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/tactic_round_bold"

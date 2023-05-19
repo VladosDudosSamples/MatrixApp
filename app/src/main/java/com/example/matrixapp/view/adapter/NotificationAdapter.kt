@@ -34,6 +34,7 @@ class NotificationAdapter(
         val item = notifications[position]
         with(holder.binding) {
             tvNotificationTitle.text = item.title
+            tvNotificationDate.ellipsize
             tvNotificationContent.text = item.content
             tvNotificationDate.text = item.date
             when (item.notificationType) {

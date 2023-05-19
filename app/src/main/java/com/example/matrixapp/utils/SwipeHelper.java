@@ -1,8 +1,8 @@
 package com.example.matrixapp.utils;
 
-
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -10,7 +10,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.text.Layout;
 import android.text.StaticLayout;
-import android.text.TextPaint;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -91,7 +91,6 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
 
         attachSwipe();
     }
-
 
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
@@ -220,52 +219,41 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
         }
 
         private void onDraw(Canvas canvas, RectF rect, int pos) {
+            Log.d("canv.width", String.valueOf(canvas.getWidth()));
+            Log.d("canv.height", String.valueOf(canvas.getHeight()));
+            Log.d("rect.width", String.valueOf(rect.height()));
+            Log.d("rect.height", String.valueOf(rect.width()));
+            Log.d("rect.left", String.valueOf(rect.left));
+            Log.d("rect.right", String.valueOf(rect.right));
+            Log.d("rect.top", String.valueOf(rect.top));
+            Log.d("rect.bottom", String.valueOf(rect.bottom));
 
+            Log.d("---------------", "");
             Paint p = new Paint();
             // Draw background
+            p.setColor(Color.BLACK);
 
             canvas.drawRect(rect, p);
 
             if (!animate) {
-                // Draw Text
-//                p.setColor(Color.BLACK);
-
-                p.setTextSize(40);
-                Rect r = new Rect();
                 float cHeight = rect.height();
-                float cWidth = rect.width();
-                p.setTextAlign(Paint.Align.LEFT);
-
 
                 if (imageResId != null) {
-                    imageResId.setBounds((int) (rect.left + 50), (int) (rect.top + (cHeight / 2f)), (int) (rect.right - 50), (int) (rect.bottom - ((cHeight / 10f))));
+                    imageResId.setBounds((int) (rect.left + 100), (int) (rect.top + (cHeight / 40f)), (int) (rect.right), (int) (rect.bottom - ((cHeight / 40f))));
+                    //imageResId.setBounds((int) (rect.left), (int) (rect.top + (cHeight / 40f)), (int) (rect.right), (int) (rect.bottom - ((cHeight / 40f))));
                     imageResId.draw(canvas);
                 }
 
             } else {
-                //animate
-                // Draw Text
-                TextPaint textPaint = new TextPaint();
-                textPaint.setTextSize(40);
-
-                StaticLayout sl = new StaticLayout(null, textPaint, (int) rect.width(),
+                StaticLayout sl = new StaticLayout(null, null, (int) rect.width() / 2,
                         Layout.Alignment.ALIGN_CENTER, 1, 1, false);
 
                 if (imageResId != null) {
-                    imageResId.setBounds((int) (rect.left - 2 0), (int) (rect.top + (rect.height() / 2f)), (int) (rect.right - 50), (int) (rect.bottom - ((rect.height() / 10f))))
-                    ;
+
                     imageResId.draw(canvas);
                 }
 
                 canvas.save();
-                Rect r = new Rect();
-                float y = (rect.height() / 2f) + (r.height() / 2f) - r.bottom - (sl.getHeight() / 2);
-
-                if (imageResId == null)
-                    canvas.translate(rect.left, rect.top + y);
-                else
-                    canvas.translate(rect.left, rect.top + y - 30);
-
 
                 sl.draw(canvas);
                 canvas.restore();

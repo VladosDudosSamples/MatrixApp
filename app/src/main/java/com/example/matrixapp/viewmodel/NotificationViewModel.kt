@@ -12,7 +12,7 @@ class NotificationViewModel : ViewModel() {
     private val notificationsList = mutableListOf(
         Notification(
             "Renewal notification",
-            "On 22 May, a 10 subscription fee will be charged",
+            "On 22 May, a 10",
             "12 May",
             NotificationType.PAYMENT
         ),
