@@ -100,7 +100,11 @@
         android:id="@+id/paymentFragment"
         android:name="com.example.matrixapp.view.fragments.PaymentFragment"
         android:label="fragment_payment"
-        tools:layout="@layout/fragment_payment" />
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_pricingFragment"
+            app:destination="@id/pricingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/pricingFragment"
         android:name="com.example.matrixapp.view.fragments.PricingFragment"
