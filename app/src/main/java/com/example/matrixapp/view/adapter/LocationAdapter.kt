@@ -18,8 +18,8 @@ import kotlinx.coroutines.launch
 
 class LocationAdapter(
     val context: Context,
-    var locations: List<Location>,
-    val isLocked: Boolean,
+    private var locations: List<Location>,
+    private val isLocked: Boolean,
     val onCardClickListener: (City) -> Unit = {},
 ) : RecyclerView.Adapter<LocationAdapter.LocationHolder>() {
     class LocationHolder(val binding: LocationCardBinding) : RecyclerView.ViewHolder(binding.root)
@@ -61,13 +61,6 @@ class LocationAdapter(
                     root.strokeColor = ContextCompat.getColor(context, R.color.green)
                 }
             }
-//            if (location.isExposed) {
-//                rvCities.visibility = View.VISIBLE
-//                imageStatus.rotation = 180F
-//            } else {
-//                rvCities.visibility = View.GONE
-//                imageStatus.rotation = 0F
-//            }
             if (location.cities.size == 1) {
                 tvCity.text = location.cities[0].name
                 if (isLocked) {
@@ -109,9 +102,7 @@ class LocationAdapter(
                         rvCities.visibility = View.GONE
                     }
                 } else {
-                    if (isLocked) {
-
-                    } else {
+                    if (!isLocked) {
                         onCardClickListener(location.cities[0])
                         notifyDataSetChanged()
                         updateList(locations)

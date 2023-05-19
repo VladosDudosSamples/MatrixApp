@@ -13,6 +13,7 @@
     <string name="and">and</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="fish_text">Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt ut\nlabore et dolore magna aliqua.</string>
+    <string name="fish_text_no_skip">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="register">Register</string>
     <string name="forgot_password">Forgot password?</string>
@@ -63,5 +64,38 @@
     <string name="close">Close</string>
 
     <string name="activation_failed">Activation failed</string>
-    <string name="notifications_big">NOTIFICATIONS</string>
+    <string name="free">Free</string>
+    <string name="access_for_n_days">Access for N days</string>
+    <string name="no_traffic_restriction">No traffic restriction</string>
+    <string name="_1_connect">1 Connect</string>
+    <string name="base">Base</string>
+    <string name="without_selecting_a_location_server">Without selecting a location (server)</string>
+    <string name="base_price">10,50$</string>
+    <string name="premium">Premium</string>
+    <string name="premium_price">20,50$</string>
+    <string name="choosing_a_location">Choosing a location (server)</string>
+    <string name="_10_connects">10 Connects</string>
+    <string name="individual">Individual</string>
+    <string name="bring_a_friend_and_get_10_days_free_use">Bring a friend\nand get 10 days\nfree use</string>
+    <string name="share_link">Share link</string>
+    <string name="participate">Participate</string>
+    <string name="lvl">Lvl</string>
+    <string name="reward">Reward</string>
+    <string name="_1">1</string>
+    <string name="_10">10%</string>
+    <string name="_2">2</string>
+    <string name="_20">20%</string>
+    <string name="_3">3</string>
+    <string name="_30">30%</string>
+    <string name="terms_and_conditions">Terms and conditions</string>
+    <string name="send_question">Send question</string>
+    <string name="telegram">Telegram</string>
+    <string name="contact_us">Contact us</string>
+    <string name="email">Email</string>
+    <string name="faq">FAQ</string>
+    <string name="your_question">Your question</string>
+    <string name="active">Active</string>
+    <string name="history">History</string>
+    <string name="renew_your_subscription">Renew your subscription</string>
+  <string name="notifications_big">NOTIFICATIONS</string>
 </resources>

@@ -20,7 +20,11 @@
         android:id="@+id/notificationsFragment"
         android:name="com.example.matrixapp.view.fragments.NotificationsFragment"
         tools:layout="@layout/fragment_notufications"
-        android:label="fragment_notufications" />
+        android:label="fragment_notufications" >
+        <action
+            android:id="@+id/action_notificationsFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
     <action
         android:id="@+id/action_matrixVpmFragment_to_partnerFragment"
         app:destination="@id/partnerFragment" />
@@ -31,12 +35,23 @@
         android:id="@+id/partnerFragment"
         android:name="com.example.matrixapp.view.fragments.PartnerFragment"
         tools:layout="@layout/fragment_partner"
-        android:label="fragment_partner" />
+        android:label="fragment_partner" >
+        <action
+            android:id="@+id/action_partnerFragment_to_privacyFragment2"
+            app:destination="@id/privacyFragment2" />
+        <action
+            android:id="@+id/action_partnerFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
     <fragment
         android:id="@+id/supportFragment"
         android:name="com.example.matrixapp.view.fragments.SupportFragment"
         tools:layout="@layout/fragment_support"
-        android:label="fragment_support" />
+        android:label="fragment_support" >
+        <action
+            android:id="@+id/action_supportFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
     <fragment
         android:id="@+id/matrixVpmFragment"
         android:name="com.example.matrixapp.view.fragments.MatrixVpmFragment"
@@ -85,7 +100,11 @@
         android:id="@+id/paymentFragment"
         android:name="com.example.matrixapp.view.fragments.PaymentFragment"
         android:label="fragment_payment"
-        tools:layout="@layout/fragment_payment" />
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_pricingFragment"
+            app:destination="@id/pricingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/pricingFragment"
         android:name="com.example.matrixapp.view.fragments.PricingFragment"
