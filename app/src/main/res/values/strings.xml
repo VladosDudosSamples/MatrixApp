@@ -97,4 +97,5 @@
     <string name="active">Active</string>
     <string name="history">History</string>
     <string name="renew_your_subscription">Renew your subscription</string>
+  <string name="notifications_big">NOTIFICATIONS</string>
 </resources>

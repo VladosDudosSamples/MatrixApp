@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="312dp"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/delete_notifications_dialog_background"
+    android:orientation="vertical"
+    app:cardCornerRadius="28dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do you really want to clear the notifications?"
+            android:textColor="@color/dialogTitleColor"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:text="Deleted notifications will not be recoverable"
+            android:textColor="@color/dialogMessageColor" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginVertical="34dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvCloseDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Close"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toStartOf="@id/tvClearAll"
+                android:textColor="@color/dialogBtnColor" />
+
+            <TextView
+                android:id="@+id/tvClearAll"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Clear all"
+                android:layout_marginEnd="12dp"
+                android:textColor="@color/dialogBtnColor"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
