@@ -231,7 +231,7 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
             Log.d("---------------", "");
             Paint p = new Paint();
             // Draw background
-            p.setColor(Color.BLACK);
+            p.setColor(Color.TRANSPARENT);
 
             canvas.drawRect(rect, p);
 
