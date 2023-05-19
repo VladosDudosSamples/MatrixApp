@@ -94,4 +94,7 @@
     <string name="email">Email</string>
     <string name="faq">FAQ</string>
     <string name="your_question">Your question</string>
+    <string name="active">Active</string>
+    <string name="history">History</string>
+    <string name="renew_your_subscription">Renew your subscription</string>
 </resources>
