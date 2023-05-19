@@ -20,7 +20,11 @@
         android:id="@+id/notificationsFragment"
         android:name="com.example.matrixapp.view.fragments.NotificationsFragment"
         tools:layout="@layout/fragment_notufications"
-        android:label="fragment_notufications" />
+        android:label="fragment_notufications" >
+        <action
+            android:id="@+id/action_notificationsFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
     <action
         android:id="@+id/action_matrixVpmFragment_to_partnerFragment"
         app:destination="@id/partnerFragment" />
@@ -43,7 +47,11 @@
         android:id="@+id/supportFragment"
         android:name="com.example.matrixapp.view.fragments.SupportFragment"
         tools:layout="@layout/fragment_support"
-        android:label="fragment_support" />
+        android:label="fragment_support" >
+        <action
+            android:id="@+id/action_supportFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
     <fragment
         android:id="@+id/matrixVpmFragment"
         android:name="com.example.matrixapp.view.fragments.MatrixVpmFragment"
