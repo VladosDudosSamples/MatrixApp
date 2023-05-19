@@ -22,7 +22,9 @@
 
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">@color/purple</color>
 
-
     <color name="pricing_card_stroke">#FF2D2D3B</color>
     <color name="pricing_card_background">#FF24262E</color>
+
+    <color name="partner_prog_card_color">#EA262630</color>
+    <color name="useless_partner_grey_color">#FA2F2F3A</color>
 </resources>
