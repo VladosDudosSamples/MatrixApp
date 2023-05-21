@@ -1,77 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="16dp">
+    android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/paymentFrame"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:backgroundTint="@color/transparent"
+        android:id="@+id/monthView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/black_bottom_sheet"
+        android:visibility="visible"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearance="@style/ImageCut"
-        app:strokeColor="@color/green_transparent"
-        app:strokeWidth="2dp">
+        app:strokeColor="@color/black_bottom_sheet">
 
-        <ImageView
-            android:id="@+id/imagePaymentType"
+        <TextView
+            android:id="@+id/mTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/done" />
+            android:fontFamily="@font/tactic_round_bold"
+            android:text="May"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:textColor="@color/grey"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
 
     </com.google.android.material.card.MaterialCardView>
 
-    <TextView
-        android:id="@+id/paymentTitle"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPaymentCards"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:fontFamily="@font/tactic_round_bold"
-        android:maxLines="1"
-        android:text="The subscription"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/paymentFrame"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/paymentDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:fontFamily="@font/tactic_round_bold"
-        android:text="On 22 May, a $10 subsc"
-        android:textColor="@color/grey"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/paymentFrame" />
-
-
-    <TextView
-        android:id="@+id/paymentSum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/tactic_round_bold"
-        android:text="12 May"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/paymentDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/tactic_round_bold"
-        android:text="12 May"
-        android:textColor="@color/grey"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        tools:listitem="@layout/payment_card"
+        app:layout_constraintTop_toBottomOf="@+id/monthView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
