@@ -1,5 +1,6 @@
 package com.example.matrixapp.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -71,6 +72,7 @@ public abstract class SwipeHelper extends ItemTouchHelper.SimpleCallback {
         }
     };
 
+    @SuppressLint("ClickableViewAccessibility")
     public SwipeHelper(Context context, RecyclerView recyclerView, Boolean animate) {
         super(0, ItemTouchHelper.LEFT);
         SwipeHelper.animate = animate;
