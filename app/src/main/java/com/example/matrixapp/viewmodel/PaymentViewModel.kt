@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.matrixapp.model.PaymentItem
+import com.example.matrixapp.model.PaymentListModel
 import java.time.LocalDate
 import java.util.Date
 
@@ -21,13 +22,19 @@ class PaymentViewModel : ViewModel() {
         PaymentItem(10,"Payment #1448", "Premium pricing8", 1, -20.00, LocalDate.parse("2023-03-21"), false),
         PaymentItem(11,"Payment #1448", "Premium pricing8", 1, -20.00, LocalDate.parse("2023-03-21"), false),
         PaymentItem(12,"Payment #1448", "Premium pricing8", 1, -20.00, LocalDate.parse("2023-03-21"), false),
-        PaymentItem(13,"Payment #10", "Premium pricing13", 0, -30.00, LocalDate.parse("2023-03-21"), true)
+        PaymentItem(13,"Payment #10", "Premium pricing13", 0, -30.00, LocalDate.parse("2023-03-21"), false)
     )
-    var list = MutableLiveData<List<PaymentItem>>()
     val currentListSize = MutableLiveData<Int>()
-
-    fun getListPayments(){
-        list.value = baseList.sortedByDescending { it.date }
-        currentListSize.value = baseList.size
+    val monthsLifeData = MutableLiveData<MutableList<PaymentListModel>>()
+    fun getMonths(){
+        val distinct = baseList.distinctBy { it.date.month }
+        val months = mutableListOf<PaymentListModel>()
+        distinct.forEach { item ->
+            months.add(
+                PaymentListModel(item.date, baseList.filter { it.date.month == item.date.month })
+            )
+        }
+        monthsLifeData.value = months
+        currentListSize.value = months.size
     }
 }

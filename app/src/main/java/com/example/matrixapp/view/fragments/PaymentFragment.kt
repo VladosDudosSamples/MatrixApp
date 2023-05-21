@@ -11,12 +11,17 @@ import com.example.matrixapp.R
 import com.example.matrixapp.databinding.FragmentPartnerBinding
 import com.example.matrixapp.databinding.FragmentPaymentBinding
 import com.example.matrixapp.model.PaymentItem
+import com.example.matrixapp.model.PaymentListModel
 import com.example.matrixapp.view.adapter.PaymentsItemsAdapter
 import com.example.matrixapp.viewmodel.PaymentViewModel
 
 class PaymentFragment : Fragment() {
 
-    private val binding: FragmentPaymentBinding by lazy { FragmentPaymentBinding.inflate(layoutInflater) }
+    private val binding: FragmentPaymentBinding by lazy {
+        FragmentPaymentBinding.inflate(
+            layoutInflater
+        )
+    }
     private val paymentViewModel: PaymentViewModel by viewModels()
     private lateinit var adapter: PaymentsItemsAdapter
     override fun onCreateView(
@@ -29,15 +34,15 @@ class PaymentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        paymentViewModel.getMonths()
         setObservers()
-        paymentViewModel.getListPayments()
         applyClick()
         setAdapter()
         setSwitch()
     }
 
-    private fun applyClick(){
-        with(binding){
+    private fun applyClick() {
+        with(binding) {
             renewBtn.setOnClickListener {
                 findNavController().navigate(R.id.action_paymentFragment_to_pricingFragment)
             }
@@ -47,32 +52,37 @@ class PaymentFragment : Fragment() {
         }
     }
 
-    private fun setAdapter(){
-        with(binding){
+    private fun setAdapter() {
+        with(binding) {
             adapter = PaymentsItemsAdapter(requireContext(), listOf())
             rvPaymentItems.adapter = adapter
         }
     }
 
-    private fun setSwitch(){
+    private fun setSwitch() {
         binding.switchTabs.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked){
-                val copyList = paymentViewModel.list.value?.filter { it.isActive } ?: listOf()
-                adapter.updateList(copyList)
-                paymentViewModel.currentListSize.value = copyList.size
-            }
-            else {
-                adapter.updateList(paymentViewModel.list.value?: listOf())
-                paymentViewModel.currentListSize.value = paymentViewModel.list.value?.size
+            if (isChecked) {
+                val copyModel = mutableListOf<PaymentListModel>()
+                paymentViewModel.monthsLifeData.value!!.forEach { item ->
+                    if (item.payments.any { it.isActive }) {
+                        copyModel.add(PaymentListModel(item.month, item.payments.filter { it.isActive }))
+                    }
+                }
+
+                adapter.updateList(copyModel)
+                paymentViewModel.currentListSize.value = copyModel.size
+            } else {
+                adapter.updateList(paymentViewModel.monthsLifeData.value ?: mutableListOf())
+                paymentViewModel.currentListSize.value = paymentViewModel.monthsLifeData.value?.size
             }
         }
     }
 
-    private fun setObservers(){
-        paymentViewModel.list.observe(viewLifecycleOwner){
+    private fun setObservers() {
+        paymentViewModel.monthsLifeData.observe(viewLifecycleOwner) {
             adapter.updateList(it)
         }
-        paymentViewModel.currentListSize.observe(viewLifecycleOwner){
+        paymentViewModel.currentListSize.observe(viewLifecycleOwner) {
             if (it == 0) binding.imgEmptyList.visibility = View.VISIBLE
             else binding.imgEmptyList.visibility = View.GONE
         }

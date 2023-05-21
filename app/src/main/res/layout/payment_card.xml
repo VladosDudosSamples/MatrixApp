@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_constraintTop_toBottomOf="@+id/monthView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/paymentFrame"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/ImageCut"
+        app:strokeColor="@color/green_transparent"
+        app:strokeWidth="2dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/transparent">
+
+        <ImageView
+            android:id="@+id/imagePaymentType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/done" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/paymentTitle"
+        app:layout_constraintStart_toEndOf="@+id/paymentFrame"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/tactic_round_bold"
+        android:maxLines="1"
+        android:text="The subscription"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/paymentDescription"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/paymentFrame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/tactic_round_bold"
+        android:text="On 22 May, a $10 subsc"
+        android:textColor="@color/grey"
+        android:textSize="14sp" />
+
+
+    <TextView
+        android:id="@+id/paymentSum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/tactic_round_bold"
+        android:text="12 May"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/paymentDate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/tactic_round_bold"
+        android:text="12 May"
+        android:textColor="@color/grey"
+        android:textSize="14sp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
