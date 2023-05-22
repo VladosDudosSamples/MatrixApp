@@ -2,23 +2,28 @@ package com.example.matrixapp.view.fragments
 
 import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
+import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.matrixapp.R
 import com.example.matrixapp.databinding.DeleteNotificationsDialogBinding
 import com.example.matrixapp.databinding.FragmentNotuficationsBinding
 import com.example.matrixapp.model.Notification
 import com.example.matrixapp.view.activity.DrawerActivity
 import com.example.matrixapp.view.adapter.NotificationAdapter
 import com.example.matrixapp.viewmodel.NotificationViewModel
+
 
 @RequiresApi(Build.VERSION_CODES.O)
 class NotificationsFragment : Fragment() {
@@ -28,6 +33,7 @@ class NotificationsFragment : Fragment() {
     }
     private val viewModel: NotificationViewModel by viewModels()
     private lateinit var notificationAdapter: NotificationAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +51,7 @@ class NotificationsFragment : Fragment() {
         applyClick()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setObservers() {
         viewModel.notifications.observe(viewLifecycleOwner) {
             notificationAdapter.updateList(it)
@@ -60,28 +67,27 @@ class NotificationsFragment : Fragment() {
                 showDeletionDialog()
             }
             tvSortOption.setOnClickListener {
-
+                showSortMenu()
             }
             btnProfile.setOnClickListener {
-                findNavController()
+                findNavController().navigate(R.id.action_notificationsFragment_to_accountFragment)
             }
         }
     }
 
     private fun showSortMenu() {
+        val wrapper: Context = ContextThemeWrapper(requireContext(), R.style.popupMenuStyle)
+        val popup = PopupMenu(wrapper, binding.textView8)
 
+        popup.inflate(R.menu.sorting_menu)
+        popup.show()
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun deleteItem(item: Notification) {
         viewModel.deleteItem(item)
-        binding.rvNotificationsByDate.post{
-            notificationAdapter.notifyDataSetChanged()
-        }
-        notificationAdapter.notifyDataSetChanged()
+        //viewModel.notifications.value = viewModel.notifications.value
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private fun showDeletionDialog() {
         val dialogBinding: DeleteNotificationsDialogBinding by lazy {
             DeleteNotificationsDialogBinding.inflate(
@@ -98,14 +104,13 @@ class NotificationsFragment : Fragment() {
         }
         dialogBinding.tvClearAll.setOnClickListener {
             viewModel.clearNotifications()
-            //notificationAdapter.notifyDataSetChanged()
             dialog.dismiss()
         }
         dialog.show()
     }
 
     private fun initNotificationAdapter() {
-        notificationAdapter = NotificationAdapter(requireContext(), listOf()) {
+        notificationAdapter = NotificationAdapter(requireContext(), mutableListOf()) {
             deleteItem(it)
         }
         binding.rvNotificationsByDate.apply {

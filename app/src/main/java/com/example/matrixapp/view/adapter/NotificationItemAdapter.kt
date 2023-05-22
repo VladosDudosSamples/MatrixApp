@@ -15,7 +15,7 @@ import java.time.format.DateTimeFormatter
 
 class NotificationItemAdapter(
     private val context: Context,
-    private var notifications: List<Notification>,
+    private var notifications: MutableList<Notification>,
 ) :
     RecyclerView.Adapter<NotificationItemAdapter.NotificationItemHolder>() {
 
@@ -49,4 +49,18 @@ class NotificationItemAdapter(
             }
         }
     }
+
+//    private val differCallback = object : DiffUtil.ItemCallback<Notification>(){
+//        override fun areItemsTheSame(oldItem: Notification, newItem: Notification): Boolean {
+//            return  oldItem.id == newItem.id
+//        }
+//
+//        @SuppressLint("DiffUtilEquals")
+//        override fun areContentsTheSame(oldItem: Notification, newItem: Notification): Boolean {
+//            return oldItem == newItem
+//        }
+//
+//    }
+//
+//    val differ = AsyncListDiffer(this,differCallback)
 }

@@ -57,8 +57,6 @@ class LocationFragment : Fragment() {
         binding.rvPremiumLocations.post {
             privateLocationsAdapter.notifyDataSetChanged()
         }
-
-        Toast.makeText(requireContext(), "selected: $selected", Toast.LENGTH_SHORT).show()
     }
 
     private fun initPrivateLocationsAdapter() {

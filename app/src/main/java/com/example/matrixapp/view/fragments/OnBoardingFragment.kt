@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.Animation.AnimationListener
+import android.view.animation.AnimationUtils
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -39,6 +42,7 @@ class OnBoardingFragment : Fragment() {
         initViewPager()
         setObservers()
         setListeners()
+        setAnimation()
     }
 
     private fun setObservers() {
@@ -116,5 +120,25 @@ class OnBoardingFragment : Fragment() {
         (binding.onboardingViewPager[0] as RecyclerView).apply {
             overScrollMode = RecyclerView.OVER_SCROLL_NEVER
         }
+    }
+
+    private fun setAnimation() {
+        val animation = AnimationUtils.loadAnimation(requireContext(), R.anim.logo_transition_set)
+        binding.animationLogo.startAnimation(animation)
+        animation.setAnimationListener(object: AnimationListener{
+            override fun onAnimationStart(animation: Animation?) {
+
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+                binding.animationLogo.visibility = View.GONE
+                binding.imageView.visibility = View.VISIBLE
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {
+
+            }
+
+        })
     }
 }

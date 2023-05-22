@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.NotificationCardBinding
@@ -18,13 +20,12 @@ import java.time.format.DateTimeFormatter
 
 class NotificationAdapter(
     private val context: Context,
-    private var notifications: List<NotificationGroupItem>,
+    private var notifications: MutableList<NotificationGroupItem>,
     val onClick: (Notification) -> Unit = {},
 ) : RecyclerView.Adapter<NotificationAdapter.NotificationHolder>() {
     class NotificationHolder(val binding: NotificationCardBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    private lateinit var adapter: NotificationItemAdapter
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -45,26 +46,42 @@ class NotificationAdapter(
         position: Int
     ) {
         val item = notifications[position]
-        adapter = NotificationItemAdapter(context, item.notifications)
         with(holder.binding) {
             tvDate.text = DateTimeFormatter.ofPattern("dd MMM").format(item.date)
             rvNotifications.adapter =
-                adapter
-            applySwipeHelper(rvNotifications, item.notifications)
+                NotificationItemAdapter(context, item.notifications)
+            applySwipeHelper(rvNotifications, item.notifications, position)
         }
     }
 
     override fun getItemCount(): Int = notifications.size
 
+
     @SuppressLint("NotifyDataSetChanged")
     fun updateList(list: List<NotificationGroupItem>) {
-        this.notifications = list
-        notifyDataSetChanged()
+        this.notifications = list as MutableList<NotificationGroupItem>
     }
 
-    private fun applySwipeHelper(recycler: RecyclerView, items: List<Notification>) {
+//    private val differCallback = object : DiffUtil.ItemCallback<NotificationGroupItem>(){
+//        override fun areItemsTheSame(oldItem: NotificationGroupItem, newItem: NotificationGroupItem): Boolean {
+//            return  oldItem.date == newItem.date
+//        }
+//
+//        @SuppressLint("DiffUtilEquals")
+//        override fun areContentsTheSame(oldItem: NotificationGroupItem, newItem: NotificationGroupItem): Boolean {
+//            return oldItem == newItem
+//        }
+//
+//    }
+//
+//    val differ = AsyncListDiffer(this,differCallback)
+
+    private fun applySwipeHelper(
+        recycler: RecyclerView,
+        items: MutableList<Notification>,
+        position: Int,
+    ) {
         object : SwipeHelper(context, recycler, false) {
-            @SuppressLint("NotifyDataSetChanged")
             override fun instantiateUnderlayButton(
                 viewHolder: RecyclerView.ViewHolder?,
                 underlayButtons: MutableList<UnderlayButton>?
@@ -76,16 +93,14 @@ class NotificationAdapter(
                     )
                 ) { pos: Int ->
                     val item = items[pos]
-                    Toast.makeText(context, item.id.toString(), Toast.LENGTH_SHORT).show()
                     onClick(item)
-                    notifyItemRemoved(item.id)
-                    recycler.adapter!!.notifyItemRemoved(item.id)
-                    notifyDataSetChanged()
-                    adapter.notifyDataSetChanged()
-                    adapter.notifyItemRemoved(pos)
+                    recycler.adapter!!.notifyItemRemoved(pos)
+                    updateList(notifications)
+                    if (items.isEmpty()) {
+                        notifyItemRemoved(position)
+                    }
                 })
             }
         }
     }
-
 }
