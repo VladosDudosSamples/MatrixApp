@@ -7,7 +7,7 @@
     android:paddingVertical="13.5dp">
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/imageLock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="14dp"
@@ -17,16 +17,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/grey" />
 
-    <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/radioButtonConnected"
-        android:layout_width="27dp"
-        android:layout_height="24dp"
-        android:background="@null"
+    <ImageView
+        android:id="@+id/imageConnect"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/radio_back"
         android:buttonTint="@color/green"
         android:clickable="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/image"
-        app:layout_constraintStart_toStartOf="@+id/image"
+        app:layout_constraintEnd_toEndOf="@+id/imageLock"
+        app:layout_constraintStart_toStartOf="@+id/imageLock"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
