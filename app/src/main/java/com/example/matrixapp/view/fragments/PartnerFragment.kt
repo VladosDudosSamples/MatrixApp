@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.FragmentPartnerBinding
+import com.example.matrixapp.utils.Case.actionId
 import com.example.matrixapp.view.activity.DrawerActivity
 
 
@@ -23,7 +24,7 @@ class PartnerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        actionId = R.id.action_partnerFragment_to_pricingFragment
         applyClick()
     }
     private fun applyClick(){

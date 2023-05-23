@@ -22,8 +22,8 @@ class NotificationViewModel(val app: Application) : AndroidViewModel(app) {
             7,
             "Renewal notification",
             "On 22 May, a 10 subscription fee will be charged",
-            LocalDate.parse("2022-11-20"),
-            NotificationType.PAYMENT
+            LocalDate.parse("2023-06-20"),
+            NotificationType.SUCCESS
 
         ),
         Notification(
@@ -31,7 +31,21 @@ class NotificationViewModel(val app: Application) : AndroidViewModel(app) {
             "Renewal notification",
             "On 22 May, a 10 subscription fee will be charged",
             LocalDate.parse("2023-05-20"),
-            NotificationType.PAYMENT
+            NotificationType.FAILURE
+        ),
+        Notification(
+            1,
+            "Renewal notification",
+            "On 22 May, a 10 subscription fee will be charged",
+            LocalDate.parse("2023-05-20"),
+            NotificationType.FAILURE
+        ),
+        Notification(
+            1,
+            "Renewal notification",
+            "On 22 May, a 10 subscription fee will be charged",
+            LocalDate.parse("2023-05-20"),
+            NotificationType.FAILURE
         ),
 
         Notification(
@@ -39,40 +53,6 @@ class NotificationViewModel(val app: Application) : AndroidViewModel(app) {
             "Renewal notification",
             "On 22 May, a 10 subscription fee will be charged",
             LocalDate.parse("2023-04-20"),
-            NotificationType.PAYMENT
-
-        ),
-
-
-        Notification(
-            7,
-            "Renewal notification",
-            "On 22 May, a 10 subscription fee will be charged",
-            LocalDate.parse("2023-03-20"),
-            NotificationType.PAYMENT
-
-        ),
-        Notification(
-            7,
-            "Renewal notification",
-            "On 22 May, a 10 subscription fee will be charged",
-            LocalDate.parse("2023-02-20"),
-            NotificationType.PAYMENT
-
-        ),
-        Notification(
-            7,
-            "Renewal notification",
-            "On 22 May, a 10 subscription fee will be charged",
-            LocalDate.parse("2023-01-20"),
-            NotificationType.PAYMENT
-
-        ),
-        Notification(
-            7,
-            "Renewal notification",
-            "On 22 May, a 10 subscription fee will be charged",
-            LocalDate.parse("2022-12-20"),
             NotificationType.PAYMENT
 
         ),
@@ -110,6 +90,7 @@ class NotificationViewModel(val app: Application) : AndroidViewModel(app) {
         notification.notifications.remove(item)
         if (notification.notifications.isEmpty()) {
             notifications.value!!.remove(notification)
+            notifications.value = notifications.value
             Log.d("SIZE", notifications.value!!.size.toString())
             Log.d("GROUP", notification.date.month.toString())
             Log.d("DELETED", "${notification.date} - ${notification.notifications.size}")

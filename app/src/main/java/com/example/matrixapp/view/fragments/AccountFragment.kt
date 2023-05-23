@@ -17,6 +17,7 @@ import com.example.matrixapp.R
 import com.example.matrixapp.databinding.FragmentAccountBinding
 import com.example.matrixapp.databinding.PremiumActivationDialogBinding
 import com.example.matrixapp.databinding.ResetPasswordDialogLayoutBinding
+import com.example.matrixapp.utils.Case
 import com.example.matrixapp.view.activity.DrawerActivity
 import com.example.matrixapp.viewmodel.AccountViewModel
 
@@ -37,7 +38,7 @@ class AccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Case.actionId = R.id.action_accountFragment_to_pricingFragment
         applyClick()
         setObservers()
         getDeviceName()

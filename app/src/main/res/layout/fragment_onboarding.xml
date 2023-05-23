@@ -18,8 +18,8 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
         android:src="@drawable/onboarding_logo"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/topGuideline" />
@@ -70,18 +70,6 @@
 
     </androidx.viewpager2.widget.ViewPager2>
 
-    <ImageView
-        android:id="@+id/animationLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/dotsGuideline"
         android:layout_width="wrap_content"
@@ -125,5 +113,27 @@
             android:src="@drawable/tab_indicator_default" />
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragments.SplashFragment">
+
+        <ImageView
+            android:id="@+id/fakeAnimationImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/splash" />
+
+
+        <ImageView
+            android:id="@+id/animationLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/logo" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

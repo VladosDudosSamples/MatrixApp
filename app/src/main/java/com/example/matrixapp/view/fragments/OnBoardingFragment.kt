@@ -39,6 +39,7 @@ class OnBoardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        animateOpen()
         initViewPager()
         setObservers()
         setListeners()
@@ -140,5 +141,12 @@ class OnBoardingFragment : Fragment() {
             }
 
         })
+    }
+
+    private fun animateOpen(){
+        binding.fakeAnimationImg.animate().apply {
+            duration = 1200
+            alpha(0f)
+        }
     }
 }

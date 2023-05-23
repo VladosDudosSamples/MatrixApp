@@ -5,11 +5,8 @@ import android.content.Context
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.NotificationCardBinding
@@ -61,20 +58,6 @@ class NotificationAdapter(
     fun updateList(list: List<NotificationGroupItem>) {
         this.notifications = list as MutableList<NotificationGroupItem>
     }
-
-//    private val differCallback = object : DiffUtil.ItemCallback<NotificationGroupItem>(){
-//        override fun areItemsTheSame(oldItem: NotificationGroupItem, newItem: NotificationGroupItem): Boolean {
-//            return  oldItem.date == newItem.date
-//        }
-//
-//        @SuppressLint("DiffUtilEquals")
-//        override fun areContentsTheSame(oldItem: NotificationGroupItem, newItem: NotificationGroupItem): Boolean {
-//            return oldItem == newItem
-//        }
-//
-//    }
-//
-//    val differ = AsyncListDiffer(this,differCallback)
 
     private fun applySwipeHelper(
         recycler: RecyclerView,

@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +21,8 @@ import com.example.matrixapp.R
 import com.example.matrixapp.databinding.DeleteNotificationsDialogBinding
 import com.example.matrixapp.databinding.FragmentNotuficationsBinding
 import com.example.matrixapp.model.Notification
+import com.example.matrixapp.utils.Case
+import com.example.matrixapp.utils.Case.actionId
 import com.example.matrixapp.view.activity.DrawerActivity
 import com.example.matrixapp.view.adapter.NotificationAdapter
 import com.example.matrixapp.viewmodel.NotificationViewModel
@@ -45,6 +48,7 @@ class NotificationsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        actionId = R.id.action_notificationsFragment_to_pricingFragment
         initNotificationAdapter()
         viewModel.getNotifications()
         setObservers()
@@ -55,6 +59,7 @@ class NotificationsFragment : Fragment() {
     private fun setObservers() {
         viewModel.notifications.observe(viewLifecycleOwner) {
             notificationAdapter.updateList(it)
+            Log.d("UPDATED", it.toString())
         }
     }
 
@@ -85,7 +90,6 @@ class NotificationsFragment : Fragment() {
 
     private fun deleteItem(item: Notification) {
         viewModel.deleteItem(item)
-        //viewModel.notifications.value = viewModel.notifications.value
     }
 
     private fun showDeletionDialog() {

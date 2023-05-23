@@ -32,7 +32,8 @@ class DataManager(private val baseContext: Context) {
     }
 
     fun passOnBoarding() {
-        preferences.edit().putBoolean(baseContext.getString(R.string.on_boarding_passed), true).apply()
+        preferences.edit().putBoolean(baseContext.getString(R.string.on_boarding_passed), true)
+            .apply()
     }
 
     fun isOnBoardingPassed(): Boolean {
@@ -46,4 +47,10 @@ class DataManager(private val baseContext: Context) {
     fun isLoginPassed(): Boolean {
         return preferences.getBoolean(baseContext.getString(R.string.login_passed), false)
     }
+
+    fun saveSelectedLocation(location: String) =
+        preferences.edit().putString("location", location).apply()
+
+    fun getSelectedLocation(): String =
+        preferences.getString("location", "No connection") ?: "No connection"
 }

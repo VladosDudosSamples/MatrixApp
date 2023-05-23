@@ -13,7 +13,6 @@
         <action
             android:id="@+id/action_splashFragment_to_onBoardingFragment3"
             app:destination="@id/onBoardingFragment3"
-            app:enterAnim="@anim/fade_in_anim"
             app:popUpTo="@id/graph_navigation"
             app:popUpToInclusive="true"/>
         <action
