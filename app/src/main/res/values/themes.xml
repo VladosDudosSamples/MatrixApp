@@ -6,6 +6,7 @@
         <item name="android:windowBackground">@color/black</item>
         <item name="hintTextColor">@color/grey</item>
         <item name="colorPrimary">@color/green</item>
+       <item name="android:popupMenuStyle">@style/popUpBackgroundStyle</item>
     </style>
 
     <style name="checkBoxStyle" parent="Base.Theme.MatrixApp">
@@ -37,6 +38,18 @@
     <style name="DrawerTextAppearance" parent="android:Widget.TextView">
         <item name="android:fontFamily">@font/tactic_round_bold</item>
         <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="popupMenuStyle">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:divider">@color/divider</item>
+        <item name="android:dividerHeight">2dp</item>
+        <item name="android:fontFamily">@font/tactic_round_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="popUpBackgroundStyle" parent="Widget.MaterialComponents.PopupMenu">
+        <item name="android:popupBackground">@drawable/popup_background</item>
     </style>
 
 </resources>

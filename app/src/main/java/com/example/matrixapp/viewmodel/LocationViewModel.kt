@@ -4,13 +4,20 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.example.matrixapp.app.App
 import com.example.matrixapp.model.City
 import com.example.matrixapp.model.Location
 
-class LocationViewModel(app: Application) : AndroidViewModel(app) {
+class LocationViewModel(val app: Application) : AndroidViewModel(app) {
+
+    override fun onCleared() {
+
+    }
 
     val privateLocations = MutableLiveData<List<Location>>()
     val freeLocations = MutableLiveData<List<Location>>()
+    val selectedLocation = MutableLiveData<Location>()
+    val selectedCity = MutableLiveData<City>()
 
     private val privateLocationsList = listOf(
         Location(
@@ -111,10 +118,14 @@ class LocationViewModel(app: Application) : AndroidViewModel(app) {
                 }
             }
         }
-        if(!city.isSelected){
+        if (!city.isSelected) {
             city.isSelected = true
         }
-        Log.d("list", freeLocationsList.toString())
+
+        selectedLocation.value = freeLocations.value?.find { it.cities.contains(city) }
+        selectedCity.value = city
+        App.dm.saveSelectedLocation(  "${  selectedLocation.value?.countryName}, ${ selectedCity.value?.name}")
+
         return city
     }
 }

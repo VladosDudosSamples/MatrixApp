@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.FragmentSupportBinding
+import com.example.matrixapp.utils.Case
 import com.example.matrixapp.view.activity.DrawerActivity
 import com.example.matrixapp.view.adapter.FaqAdapter
 
@@ -29,7 +30,7 @@ class SupportFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Case.actionId = R.id.action_supportFragment_to_pricingFragment
         applyClick()
         setAdapter()
     }

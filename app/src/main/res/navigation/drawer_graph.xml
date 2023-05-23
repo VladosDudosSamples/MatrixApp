@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_notificationsFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_notificationsFragment_to_pricingFragment"
+            app:destination="@id/pricingFragment" />
     </fragment>
     <action
         android:id="@+id/action_matrixVpmFragment_to_partnerFragment"
@@ -42,6 +45,9 @@
         <action
             android:id="@+id/action_partnerFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_partnerFragment_to_pricingFragment"
+            app:destination="@id/pricingFragment" />
     </fragment>
     <fragment
         android:id="@+id/supportFragment"
@@ -51,6 +57,9 @@
         <action
             android:id="@+id/action_supportFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_supportFragment_to_pricingFragment"
+            app:destination="@id/pricingFragment" />
     </fragment>
     <fragment
         android:id="@+id/matrixVpmFragment"
@@ -75,6 +84,9 @@
         <action
             android:id="@+id/action_matrixVpmFragment_to_privacyFragment2"
             app:destination="@id/privacyFragment2" />
+        <action
+            android:id="@+id/action_matrixVpmFragment_to_pricingFragment"
+            app:destination="@id/pricingFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
@@ -109,7 +121,11 @@
         android:id="@+id/pricingFragment"
         android:name="com.example.matrixapp.view.fragments.PricingFragment"
         android:label="fragment_pricing"
-        tools:layout="@layout/fragment_pricing" />
+        tools:layout="@layout/fragment_pricing" >
+        <action
+            android:id="@+id/action_pricingFragment_to_matrixVpmFragment"
+            app:destination="@id/matrixVpmFragment" />
+    </fragment>
     <fragment
         android:id="@+id/resetPasswordFragment2"
         android:name="com.example.matrixapp.view.fragments.ResetPasswordFragment"

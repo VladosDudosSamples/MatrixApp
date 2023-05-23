@@ -8,10 +8,14 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.Guideline
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.matrixapp.R
+import com.example.matrixapp.app.App
 import com.example.matrixapp.databinding.FragmentMatrixVpmBinding
+import com.example.matrixapp.utils.Case.actionId
 import com.example.matrixapp.view.activity.DrawerActivity
+import com.example.matrixapp.viewmodel.LocationViewModel
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 
 
@@ -30,8 +34,18 @@ class MatrixVpmFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         applyCLick()
+        setLocationText()
+        actionId = R.id.action_matrixVpmFragment_to_pricingFragment
+    }
+
+    private fun setLocationText() {
+        binding.tvLocation.text = App.dm.getSelectedLocation()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setLocationText()
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -64,7 +78,7 @@ class MatrixVpmFragment : Fragment() {
             btnProfile.setOnClickListener {
                 findNavController().navigate(R.id.action_matrixVpmFragment_to_accountFragment)
             }
-            imageConstraintLayout.setOnClickListener{
+            imageConstraintLayout.setOnClickListener {
                 findNavController().navigate(R.id.action_matrixVpmFragment_to_locationFragment)
             }
         }

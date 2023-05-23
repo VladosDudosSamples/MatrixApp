@@ -1,18 +1,12 @@
 package com.example.matrixapp.view.fragments
 
 import android.app.Dialog
-import android.app.MediaRouteButton
-import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.PorterDuff
 import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -20,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.FragmentPricingBinding
 import com.example.matrixapp.databinding.PaymentDialogBinding
-import com.example.matrixapp.view.adapter.LocationAdapter
+import com.example.matrixapp.view.activity.DrawerActivity
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.radiobutton.MaterialRadioButton
 import kotlinx.coroutines.delay
@@ -29,7 +23,11 @@ import kotlinx.coroutines.launch
 
 class PricingFragment : Fragment() {
 
-    private val binding: FragmentPricingBinding by lazy { FragmentPricingBinding.inflate(layoutInflater) }
+    private val binding: FragmentPricingBinding by lazy {
+        FragmentPricingBinding.inflate(
+            layoutInflater
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,8 +43,8 @@ class PricingFragment : Fragment() {
         chooseCard(binding.freeCardView, binding.freeRb, binding.viewToHide)
     }
 
-    private fun applyClick(){
-        with(binding){
+    private fun applyClick() {
+        with(binding) {
             closePricingBtn.setOnClickListener {
                 findNavController().popBackStack()
             }
@@ -71,8 +69,12 @@ class PricingFragment : Fragment() {
         }
     }
 
-    private fun showPricingDialog(){
-        val dialogBinding: PaymentDialogBinding by lazy { PaymentDialogBinding.inflate(layoutInflater)}
+    private fun showPricingDialog() {
+        val dialogBinding: PaymentDialogBinding by lazy {
+            PaymentDialogBinding.inflate(
+                layoutInflater
+            )
+        }
         val dialog = Dialog(requireContext()).apply {
             setCancelable(false)
             setContentView(dialogBinding.root)
@@ -86,8 +88,8 @@ class PricingFragment : Fragment() {
         }
     }
 
-    private fun setDefault(){
-        with(binding){
+    private fun setDefault() {
+        with(binding) {
             freeCardView.strokeColor = getColor(requireContext(), R.color.pricing_card_stroke)
             baseCardView.strokeColor = getColor(requireContext(), R.color.pricing_card_stroke)
             premiumCardView.strokeColor = getColor(requireContext(), R.color.pricing_card_stroke)
@@ -102,8 +104,8 @@ class PricingFragment : Fragment() {
         }
     }
 
-    private fun defaultVision(){
-        with(binding){
+    private fun defaultVision() {
+        with(binding) {
             freeRb.visibility = View.INVISIBLE
             baseRb.visibility = View.INVISIBLE
             premiumRb.visibility = View.INVISIBLE
@@ -115,7 +117,8 @@ class PricingFragment : Fragment() {
             viewToHideIndividual.visibility = View.VISIBLE
         }
     }
-    private fun chooseCard(card: MaterialCardView, rButton: MaterialRadioButton, view: View){
+
+    private fun chooseCard(card: MaterialCardView, rButton: MaterialRadioButton, view: View) {
         rButton.visibility = View.VISIBLE
         view.visibility = View.INVISIBLE
         card.strokeColor = getColor(requireContext(), R.color.green)

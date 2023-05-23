@@ -19,6 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/onboarding_logo"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/topGuideline" />
@@ -28,8 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".20"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintGuide_percent=".20" />
 
     <TextView
         android:id="@+id/tvSkip"
@@ -69,7 +69,6 @@
         app:layout_constraintTop_toTopOf="@+id/viewpagerGuideline">
 
     </androidx.viewpager2.widget.ViewPager2>
-
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/dotsGuideline"
@@ -114,5 +113,27 @@
             android:src="@drawable/tab_indicator_default" />
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragments.SplashFragment">
+
+        <ImageView
+            android:id="@+id/fakeAnimationImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/splash" />
+
+
+        <ImageView
+            android:id="@+id/animationLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/logo" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

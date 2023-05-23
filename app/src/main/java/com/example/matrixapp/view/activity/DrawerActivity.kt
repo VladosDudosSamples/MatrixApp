@@ -1,13 +1,16 @@
 package com.example.matrixapp.view.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.ActivityDrawerBinding
+import com.example.matrixapp.utils.Case.actionId
+
 class DrawerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDrawerBinding
@@ -21,17 +24,23 @@ class DrawerActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navController)
         applyClick()
     }
-    private fun applyClick(){
-        with(binding){
+
+    private fun applyClick() {
+        with(binding) {
             val headerLayout = navView.getHeaderView(0)
             val btnCloseDrawer = headerLayout.findViewById<ImageView>(R.id.bntCloseDrawer)
-            btnCloseDrawer.setOnClickListener{
+            btnCloseDrawer.setOnClickListener {
+                root.closeDrawer(GravityCompat.START)
+            }
+            cardPremium.setOnClickListener {
+                findNavController(R.id.nav_host_fragment_drawer).navigate(actionId)
                 root.closeDrawer(GravityCompat.START)
             }
         }
     }
 
-    fun openDrawer(){
+    fun openDrawer() {
         binding.root.openDrawer(GravityCompat.START)
     }
+
 }

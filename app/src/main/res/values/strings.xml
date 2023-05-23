@@ -98,4 +98,9 @@
     <string name="history">History</string>
     <string name="renew_your_subscription">Renew your subscription</string>
   <string name="notifications_big">NOTIFICATIONS</string>
+    <string name="previewed">Previewed</string>
+    <string name="unreviewed">Unreviewed</string>
+    <string name="by_date">By date</string>
+    <string name="news">News</string>
+    <string name="system">System</string>
 </resources>

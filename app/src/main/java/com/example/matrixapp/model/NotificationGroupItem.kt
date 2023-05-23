@@ -4,5 +4,5 @@ import java.time.LocalDate
 
 data class NotificationGroupItem(
     val date: LocalDate,
-    val notifications: List<Notification>
+    val notifications: MutableList<Notification>
 )

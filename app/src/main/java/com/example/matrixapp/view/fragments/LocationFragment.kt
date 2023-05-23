@@ -50,15 +50,13 @@ class LocationFragment : Fragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun onItemClick(city: City) {
-        val selected = viewModel.selectLocation(city)
+        viewModel.selectLocation(city)
         binding.rvFreeLocations.post {
             freeLocationsAdapter.notifyDataSetChanged()
         }
         binding.rvPremiumLocations.post {
             privateLocationsAdapter.notifyDataSetChanged()
         }
-
-        Toast.makeText(requireContext(), "selected: $selected", Toast.LENGTH_SHORT).show()
     }
 
     private fun initPrivateLocationsAdapter() {
