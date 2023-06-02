@@ -42,7 +42,7 @@ class PartnerFragment : Fragment() {
 
             }
             privacyTxt.setOnClickListener {
-                findNavController().navigate(R.id.action_partnerFragment_to_privacyFragment2)
+                findNavController().navigate(R.id.action_partnerFragment_to_privacyFragment)
             }
         }
     }

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.FragmentSupportBinding
 import com.example.matrixapp.utils.Case
+import com.example.matrixapp.utils.Case.isDrawerGraph
 import com.example.matrixapp.view.activity.DrawerActivity
 import com.example.matrixapp.view.adapter.FaqAdapter
 
@@ -42,7 +43,7 @@ class SupportFragment : Fragment() {
             mailCardView.setOnClickListener { }
 
             btnOpenDrawer.setOnClickListener {
-                (requireActivity() as DrawerActivity).openDrawer()
+                if (isDrawerGraph) (requireActivity() as DrawerActivity).openDrawer()
             }
             btnProfile.setOnClickListener {
                 findNavController().navigate(R.id.action_supportFragment_to_accountFragment)

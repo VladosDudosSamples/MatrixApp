@@ -8,15 +8,15 @@
         android:title="@string/notifications"
         android:icon="@drawable/notification_ic"/>
 
-    <item android:id="@+id/partnerFragment"
-        android:title="@string/partner_program"
-        android:icon="@drawable/partner_ic"/>
+<!--    <item android:id="@+id/partnerFragment"-->
+<!--        android:title="@string/partner_program"-->
+<!--        android:icon="@drawable/partner_ic"/>-->
 
     <item android:id="@+id/supportFragment"
         android:title="@string/support"
         android:icon="@drawable/support_ic"/>
 
-    <item android:id="@+id/privacyFragment2"
+    <item android:id="@+id/privacyFragment"
         android:title="@string/privacy_policy"
         android:icon="@drawable/info_ic"/>
 

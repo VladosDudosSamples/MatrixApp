@@ -10,6 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.ActivityDrawerBinding
 import com.example.matrixapp.utils.Case.actionId
+import com.example.matrixapp.utils.Case.isDrawerGraph
 
 class DrawerActivity : AppCompatActivity() {
 
@@ -22,6 +23,7 @@ class DrawerActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_drawer) as NavHostFragment
         val navController = navHostFragment.navController
         binding.navView.setupWithNavController(navController)
+        isDrawerGraph = true
         applyClick()
     }
 
