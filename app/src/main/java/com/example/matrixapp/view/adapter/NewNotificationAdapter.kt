@@ -2,9 +2,11 @@ package com.example.matrixapp.view.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.RecyclerView
@@ -22,10 +24,6 @@ class NewNotificationAdapter(
 ) : RecyclerView.Adapter<NewNotificationAdapter.NotificationHolder>() {
 
     var keyData: ArrayList<LocalDate>? = null
-
-    init {
-
-    }
 
     class NotificationHolder(val binding: NotificationCardBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -49,6 +47,8 @@ class NewNotificationAdapter(
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(
         holder: NotificationHolder,
         position: Int
@@ -59,7 +59,7 @@ class NewNotificationAdapter(
         }
         val smallAdapter = items?.let { NotificationItemAdapter(context, it) }
         with(holder.binding) {
-            tvDate.text = DateTimeFormatter.ofPattern("dd MMM").format(item) + " $position"
+            tvDate.text = DateTimeFormatter.ofPattern("dd MMM").format(item)
             rvNotifications.adapter = smallAdapter
 
             items?.let {

@@ -1,6 +1,8 @@
 package com.example.matrixapp.viewmodel
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.matrixapp.model.Notification
@@ -11,6 +13,7 @@ class NewNotificationViewModel : ViewModel() {
 
     val notifications = MutableLiveData<MutableMap<LocalDate, MutableList<Notification>>>()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private var notificationsList = mutableListOf(
         Notification(
             7,
