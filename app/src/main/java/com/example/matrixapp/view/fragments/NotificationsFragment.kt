@@ -7,7 +7,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
@@ -21,11 +20,10 @@ import com.example.matrixapp.R
 import com.example.matrixapp.databinding.DeleteNotificationsDialogBinding
 import com.example.matrixapp.databinding.FragmentNotuficationsBinding
 import com.example.matrixapp.model.Notification
-import com.example.matrixapp.utils.Case
 import com.example.matrixapp.utils.Case.actionId
 import com.example.matrixapp.view.activity.DrawerActivity
-import com.example.matrixapp.view.adapter.NotificationAdapter
-import com.example.matrixapp.viewmodel.NotificationViewModel
+import com.example.matrixapp.view.adapter.NewNotificationAdapter
+import com.example.matrixapp.viewmodel.NewNotificationViewModel
 
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -34,9 +32,8 @@ class NotificationsFragment : Fragment() {
     private val binding: FragmentNotuficationsBinding by lazy {
         FragmentNotuficationsBinding.inflate(layoutInflater)
     }
-    private val viewModel: NotificationViewModel by viewModels()
-    private lateinit var notificationAdapter: NotificationAdapter
-
+    private val newNotificationViewModel: NewNotificationViewModel by viewModels()
+    private lateinit var newNotificationAdapter: NewNotificationAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,21 +42,19 @@ class NotificationsFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         actionId = R.id.action_notificationsFragment_to_pricingFragment
         initNotificationAdapter()
-        viewModel.getNotifications()
+        newNotificationViewModel.getNotifications()
         setObservers()
         applyClick()
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setObservers() {
-        viewModel.notifications.observe(viewLifecycleOwner) {
-            notificationAdapter.updateList(it)
-            Log.d("UPDATED", it.toString())
+        newNotificationViewModel.notifications.observe(viewLifecycleOwner) {
+            newNotificationAdapter.updateList(it)
         }
     }
 
@@ -85,11 +80,15 @@ class NotificationsFragment : Fragment() {
         val popup = PopupMenu(wrapper, binding.textView8)
 
         popup.inflate(R.menu.sorting_menu)
+        popup.setOnMenuItemClickListener {
+            binding.tvSortOption.text = it.title.toString()
+            true
+        }
         popup.show()
     }
 
     private fun deleteItem(item: Notification) {
-        viewModel.deleteItem(item)
+        newNotificationViewModel.deleteItem(item)
     }
 
     private fun showDeletionDialog() {
@@ -107,18 +106,19 @@ class NotificationsFragment : Fragment() {
             dialog.dismiss()
         }
         dialogBinding.tvClearAll.setOnClickListener {
-            viewModel.clearNotifications()
+            newNotificationViewModel.clearNotifications()
             dialog.dismiss()
         }
         dialog.show()
     }
 
     private fun initNotificationAdapter() {
-        notificationAdapter = NotificationAdapter(requireContext(), mutableListOf()) {
-            deleteItem(it)
-        }
+        newNotificationAdapter =
+            NewNotificationAdapter(requireContext(), mutableMapOf(), onClick = {
+                deleteItem(it)
+            })
         binding.rvNotificationsByDate.apply {
-            adapter = notificationAdapter
+            adapter = newNotificationAdapter
         }
     }
 }

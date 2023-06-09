@@ -53,8 +53,13 @@ class LocationAdapter(
             tvCountry.text = location.countryName
             rvCities.adapter = citiesAdapter
             rvCities.adapter!!.notifyDataSetChanged()
-            radioButtonConnected.isChecked = location.cities.any { it.isSelected }
-            setStrokeColor(location.cities.any { it.isSelected }, holder)
+            if (location.cities.any { it.isSelected }) {
+                imageConnect.setImageResource(R.drawable.radio_back_checked)
+            } else {
+                imageConnect.setImageResource(R.drawable.radio_back)
+            }
+
+                setStrokeColor(location.cities.any { it.isSelected }, holder)
             if (location.cities.any { it.isSelected }) {
                 GlobalScope.launch {
                     delay(25)
@@ -65,15 +70,15 @@ class LocationAdapter(
                 tvCity.text = location.cities[0].name
                 if (isLocked) {
                     imageStatus.setImageResource(R.drawable.red_lock)
-                    radioButtonConnected.visibility = View.GONE
+                    imageConnect.visibility = View.GONE
                 } else {
-                    radioButtonConnected.visibility = View.VISIBLE
-                    imageStatus.visibility = View.GONE
+                    imageConnect.visibility = View.VISIBLE
+                    imageStatus.visibility = View.INVISIBLE
                 }
             } else {
                 tvCity.text = "${location.cities.size} locations"
                 imageStatus.setImageResource(R.drawable.arrow_expose)
-                radioButtonConnected.visibility = View.GONE
+                imageConnect.visibility = View.GONE
             }
             root.setOnClickListener {
 
@@ -112,7 +117,6 @@ class LocationAdapter(
             }
         }
     }
-
 
     private fun setStrokeColor(selected: Boolean, holder: LocationHolder) {
         if (!selected) {

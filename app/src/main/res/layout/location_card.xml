@@ -60,16 +60,6 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/radioButtonConnected"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:background="@null"
-                android:buttonTint="@color/green"
-                android:clickable="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageStatus"
@@ -77,9 +67,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="27dp"
                 android:src="@drawable/arrow_expose"
-                app:layout_constraintBottom_toBottomOf="@+id/radioButtonConnected"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/radioButtonConnected" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageConnect"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/radio_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageStatus"
+                app:layout_constraintStart_toStartOf="@+id/imageStatus"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
