@@ -46,7 +46,7 @@ class SupportFragment : Fragment() {
                 if (isDrawerGraph) (requireActivity() as DrawerActivity).openDrawer()
             }
             btnProfile.setOnClickListener {
-                findNavController().navigate(R.id.action_supportFragment_to_accountFragment)
+                if (isDrawerGraph) findNavController().navigate(R.id.action_supportFragment_to_accountFragment)
             }
         }
     }

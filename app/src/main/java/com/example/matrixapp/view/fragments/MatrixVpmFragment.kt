@@ -63,16 +63,12 @@ class MatrixVpmFragment : Fragment() {
                     tvConnected.text = resources.getString(R.string.connected)
                     tvConnectionTime.text = resources.getString(R.string.time_sample)
                     binding.panel.panelState = SlidingUpPanelLayout.PanelState.COLLAPSED
-                    params.guidePercent = 0.87f
-                    guideLine.layoutParams = params
                 } else {
                     imgSwitchBackground.setImageResource(R.drawable.switch_off_back)
                     roundImage.setImageResource(R.drawable.switch_round_off)
                     tvConnected.text = resources.getString(R.string.no_connected)
                     tvConnectionTime.text = ""
                     binding.panel.panelState = SlidingUpPanelLayout.PanelState.HIDDEN;
-                    params.guidePercent = 0.93f
-                    guideLine.layoutParams = params
                 }
             }
             btnProfile.setOnClickListener {

@@ -46,8 +46,8 @@ class AccountFragment : Fragment() {
 
     private fun applyClick() {
         with(binding) {
-            btnOpenDrawer.setOnClickListener {
-                (requireActivity() as DrawerActivity).openDrawer()
+            backLayout.setOnClickListener {
+                findNavController().popBackStack()
             }
             pricingLayout.setOnClickListener {
                 findNavController().navigate(R.id.action_accountFragment_to_pricingFragment)

@@ -47,7 +47,6 @@ class DataManager(private val baseContext: Context) {
     fun isLoginPassed(): Boolean {
         return preferences.getBoolean(baseContext.getString(R.string.login_passed), false)
     }
-
     fun saveSelectedLocation(location: String) =
         preferences.edit().putString("location", location).apply()
 
