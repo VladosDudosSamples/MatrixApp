@@ -103,4 +103,6 @@
     <string name="by_date">By date</string>
     <string name="news">News</string>
     <string name="system">System</string>
+    <string name="smth_wrong">Что-то пошло не так</string>
+    <string name="matrixx_token">matrixx_token</string>
 </resources>

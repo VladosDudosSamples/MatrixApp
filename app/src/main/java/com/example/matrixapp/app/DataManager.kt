@@ -9,6 +9,7 @@ import com.example.matrixapp.model.api.Api
 class DataManager(private val baseContext: Context) {
     private lateinit var masterKey: MasterKey
     private lateinit var sharedPreferences: EncryptedSharedPreferences
+    private val tokenString = baseContext.getString(R.string.matrixx_token)
     val api = Api.createApi()
     private val preferences = baseContext.getSharedPreferences("MatrixAppVPN", Context.MODE_PRIVATE)
 
@@ -47,9 +48,19 @@ class DataManager(private val baseContext: Context) {
     fun isLoginPassed(): Boolean {
         return preferences.getBoolean(baseContext.getString(R.string.login_passed), false)
     }
+    fun logout(){
+        preferences.edit().putString(tokenString, "").apply()
+        preferences.edit().putBoolean(baseContext.getString(R.string.login_passed), false).apply()
+    }
     fun saveSelectedLocation(location: String) =
         preferences.edit().putString("location", location).apply()
 
     fun getSelectedLocation(): String =
         preferences.getString("location", "No connection") ?: "No connection"
+    fun saveToken(token: String){
+        preferences.edit().putString(tokenString ,token).apply()
+    }
+    fun getToken() : String{
+        return preferences.getString(tokenString, "") ?: ""
+    }
 }
