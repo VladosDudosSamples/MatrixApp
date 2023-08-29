@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Matrix app</string>
+    <string name="app_name">Matrixx Vpn</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="registration">Registration</string>
@@ -8,6 +8,7 @@
     <string name="e_mail">E-mail</string>
     <string name="your_password">Your password</string>
     <string name="replace_password">Replace password</string>
+    <string name="repeat_password">Repeat password</string>
     <string name="i_agree_to_the">I agree to the</string>
     <string name="terms_of_use">Terms of Use</string>
     <string name="and">and</string>
@@ -103,4 +104,6 @@
     <string name="by_date">By date</string>
     <string name="news">News</string>
     <string name="system">System</string>
+    <string name="smth_wrong">Что-то пошло не так</string>
+    <string name="matrixx_token">matrixx_token</string>
 </resources>

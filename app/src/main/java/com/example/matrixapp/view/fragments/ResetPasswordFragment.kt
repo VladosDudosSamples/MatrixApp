@@ -70,7 +70,7 @@ class ResetPasswordFragment : Fragment() {
             else resetPasswordViewModel.isEmailEntered.value = true
         }
         binding.contactSupportTxt.setOnClickListener {
-            findNavController().navigate(R.id.action_resetPasswordFragment_to_supportFragment2)
+            findNavController().navigate(R.id.action_resetPasswordFragment_to_supportFragment)
         }
         binding.backFrameBtn.setOnClickListener { findNavController().popBackStack() }
         binding.showHideBtnPassword.setOnClickListener {

@@ -1,5 +1,7 @@
 package com.example.matrixapp.view.activity
 
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +12,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.ActivityDrawerBinding
 import com.example.matrixapp.utils.Case.actionId
+import com.example.matrixapp.utils.Case.isDrawerGraph
+
 
 class DrawerActivity : AppCompatActivity() {
 
@@ -22,6 +26,7 @@ class DrawerActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_drawer) as NavHostFragment
         val navController = navHostFragment.navController
         binding.navView.setupWithNavController(navController)
+        isDrawerGraph = true
         applyClick()
     }
 
@@ -42,5 +47,4 @@ class DrawerActivity : AppCompatActivity() {
     fun openDrawer() {
         binding.root.openDrawer(GravityCompat.START)
     }
-
 }

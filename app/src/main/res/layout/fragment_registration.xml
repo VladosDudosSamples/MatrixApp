@@ -107,7 +107,7 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/greyTransparent"
             android:fontFamily="@font/tactic_round"
-            android:hint="@string/replace_password"
+            android:hint="@string/repeat_password"
             android:inputType="textPassword"
             android:maxLines="1"
             android:paddingBottom="28dp"

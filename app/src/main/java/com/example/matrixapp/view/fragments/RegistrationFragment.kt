@@ -1,21 +1,21 @@
 package com.example.matrixapp.view.fragments
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
 import android.text.method.PasswordTransformationMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.FragmentRegistrationBinding
-import com.example.matrixapp.databinding.FragmentSplashBinding
-import com.example.matrixapp.view.activity.DrawerActivity
+import com.example.matrixapp.model.server.RegisterPost
+import com.example.matrixapp.model.server.RegistrationDevice
+import com.example.matrixapp.viewmodel.RegistrationViewModel
 
 class RegistrationFragment : Fragment() {
 
@@ -26,6 +26,7 @@ class RegistrationFragment : Fragment() {
             layoutInflater
         )
     }
+    private val viewModel: RegistrationViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +39,7 @@ class RegistrationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         applyClick()
+        setObservers()
     }
 
     private fun applyClick() {
@@ -46,8 +48,19 @@ class RegistrationFragment : Fragment() {
         binding.termsTxt.setOnClickListener { }
 
         binding.regButton.setOnClickListener {
-            requireContext().startActivity(Intent(activity, DrawerActivity::class.java))
-            requireActivity().finish()
+            if (binding.checkBoxTermsAndPrivacy.isChecked) {
+                viewModel.registration(
+                    RegisterPost
+                        (
+                        binding.emailEditText.text.toString(),
+                        binding.passwordEditText.text.toString(),
+                        binding.repeatPasswordEditText.text.toString()
+                    ),
+                    requireContext()
+                )
+            } else Toast.makeText(requireContext(), "Необходимо согласиться с политикой конфиденциальности и условиями использования", Toast.LENGTH_SHORT).show()
+//            requireContext().startActivity(Intent(activity, DrawerActivity::class.java))
+//            requireActivity().finish()
         }
 
         binding.privacyTxt.setOnClickListener { findNavController().navigate(R.id.action_registrationFragment_to_privacyFragment) }
@@ -72,6 +85,15 @@ class RegistrationFragment : Fragment() {
                 Glide.with(it).load(R.drawable.password_eye).into(it as ImageView)
                 binding.repeatPasswordEditText.transformationMethod = PasswordTransformationMethod()
                 checkerRepeat = true
+            }
+        }
+    }
+
+    private fun setObservers() {
+        viewModel.successResponse.observe(viewLifecycleOwner) {
+            if (it) {
+                findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
+                viewModel.successResponse.value = false
             }
         }
     }

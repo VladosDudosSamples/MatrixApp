@@ -40,8 +40,8 @@
         tools:layout="@layout/fragment_partner"
         android:label="fragment_partner" >
         <action
-            android:id="@+id/action_partnerFragment_to_privacyFragment2"
-            app:destination="@id/privacyFragment2" />
+            android:id="@+id/action_partnerFragment_to_privacyFragment"
+            app:destination="@id/privacyFragment" />
         <action
             android:id="@+id/action_partnerFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
@@ -82,8 +82,8 @@
             android:id="@+id/action_matrixVpmFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
         <action
-            android:id="@+id/action_matrixVpmFragment_to_privacyFragment2"
-            app:destination="@id/privacyFragment2" />
+            android:id="@+id/action_matrixVpmFragment_to_privacyFragment"
+            app:destination="@id/privacyFragment" />
         <action
             android:id="@+id/action_matrixVpmFragment_to_pricingFragment"
             app:destination="@id/pricingFragment" />
@@ -101,10 +101,10 @@
             app:destination="@id/pricingFragment" />
         <action
             android:id="@+id/action_accountFragment_to_resetPasswordFragment2"
-            app:destination="@id/resetPasswordFragment2" />
+            app:destination="@id/resetPasswordFragment" />
     </fragment>
     <fragment
-        android:id="@+id/privacyFragment2"
+        android:id="@+id/privacyFragment"
         android:name="com.example.matrixapp.view.fragments.PrivacyFragment"
         android:label="fragment_privacy"
         tools:layout="@layout/fragment_privacy" />
@@ -127,8 +127,12 @@
             app:destination="@id/matrixVpmFragment" />
     </fragment>
     <fragment
-        android:id="@+id/resetPasswordFragment2"
+        android:id="@+id/resetPasswordFragment"
         android:name="com.example.matrixapp.view.fragments.ResetPasswordFragment"
         android:label="fragment_reset_password"
-        tools:layout="@layout/fragment_reset_password" />
+        tools:layout="@layout/fragment_reset_password" >
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
+    </fragment>
 </navigation>

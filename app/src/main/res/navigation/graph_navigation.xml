@@ -64,8 +64,8 @@
         android:label="fragment_reset_password"
         tools:layout="@layout/fragment_reset_password" >
         <action
-            android:id="@+id/action_resetPasswordFragment_to_supportFragment2"
-            app:destination="@id/supportFragment2" />
+            android:id="@+id/action_resetPasswordFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
         <action
             android:id="@+id/action_resetPasswordFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -76,7 +76,7 @@
         android:label="fragment_privacy"
         tools:layout="@layout/fragment_privacy" />
     <fragment
-        android:id="@+id/supportFragment2"
+        android:id="@+id/supportFragment"
         android:name="com.example.matrixapp.view.fragments.SupportFragment"
         android:label="fragment_support"
         tools:layout="@layout/fragment_support" />
