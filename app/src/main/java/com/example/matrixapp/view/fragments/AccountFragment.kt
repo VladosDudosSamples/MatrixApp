@@ -42,6 +42,7 @@ class AccountFragment : Fragment() {
         applyClick()
         setObservers()
         getDeviceName()
+        accountViewModel.getUserInfo(requireContext())
     }
 
     private fun applyClick() {

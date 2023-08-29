@@ -20,7 +20,7 @@ class RegistrationViewModel : ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                Log.d("REGISTRATION", it.login)
+                Log.d("REGISTRATION", "${it.login} work1")
                 successResponse.value = true
             }, {
                 Toast.makeText(context, context.getString(R.string.smth_wrong), Toast.LENGTH_SHORT).show()
@@ -30,7 +30,7 @@ class RegistrationViewModel : ViewModel() {
         val disp = App.dm.api.registerDevice(registrationDevice).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                Log.d("REGISTRATION", it.login)
+                Log.d("REGISTRATION", "${it.login} work2")
             }, {
                 Toast.makeText(context, it.message.toString(), Toast.LENGTH_SHORT).show()
             })

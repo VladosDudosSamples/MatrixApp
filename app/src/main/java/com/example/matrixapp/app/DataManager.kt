@@ -63,4 +63,11 @@ class DataManager(private val baseContext: Context) {
     fun getToken() : String{
         return preferences.getString(tokenString, "") ?: ""
     }
+
+    fun saveKey(token: String){
+        preferences.edit().putString("vpnKey" ,token).apply()
+    }
+    fun getKey() : String{
+        return preferences.getString("vpnKey", "") ?: ""
+    }
 }

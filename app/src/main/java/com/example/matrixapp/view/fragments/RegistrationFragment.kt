@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.matrixapp.R
 import com.example.matrixapp.databinding.FragmentRegistrationBinding
 import com.example.matrixapp.model.server.RegisterPost
+import com.example.matrixapp.model.server.RegistrationDevice
 import com.example.matrixapp.viewmodel.RegistrationViewModel
 
 class RegistrationFragment : Fragment() {

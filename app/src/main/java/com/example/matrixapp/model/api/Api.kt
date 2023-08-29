@@ -3,6 +3,7 @@ package com.example.matrixapp.model.api
 import com.example.matrixapp.model.ApiToken
 import com.example.matrixapp.model.server.Key
 import com.example.matrixapp.model.server.LoginPost
+import com.example.matrixapp.model.server.MessageObs
 import com.example.matrixapp.model.server.RegisterObs
 import com.example.matrixapp.model.server.RegisterPost
 import com.example.matrixapp.model.server.RegistrationDevice
@@ -28,16 +29,16 @@ interface Api {
     fun login(@Body loginPost: LoginPost) : Observable<Token>
 
     @GET("user")
-    fun getUser(@Header("Authorization") token: String) : Observable<UserObs>
+    fun getUser(@Header("Authorization") token: String, @Header("Content-Type") type: String = "application/json") : Observable<UserObs>
 
     @GET("get_key")
     fun getKey(@Header("Authorization") token: String) : Observable<Key>
 
-    @POST("refresh")
-    fun refreshToken() : Observable<Token>
+    @GET("get_new_key")
+    fun getNewKey(@Header("Authorization") token: String) : Observable<Key>
 
     @POST("logout")
-    fun logout()
+    fun logout() : Observable<MessageObs>
 
     companion object{
         fun createApi():Api{

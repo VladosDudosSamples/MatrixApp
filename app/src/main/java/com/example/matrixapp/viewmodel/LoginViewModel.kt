@@ -1,6 +1,7 @@
 package com.example.matrixapp.viewmodel
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,6 +21,7 @@ class LoginViewModel : ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
+                Log.d("LOGIN", it.token)
                 App.dm.saveToken(it.token)
                 successResponse.value = true
             }, {

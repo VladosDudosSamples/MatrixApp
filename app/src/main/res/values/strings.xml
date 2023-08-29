@@ -8,6 +8,7 @@
     <string name="e_mail">E-mail</string>
     <string name="your_password">Your password</string>
     <string name="replace_password">Replace password</string>
+    <string name="repeat_password">Repeat password</string>
     <string name="i_agree_to_the">I agree to the</string>
     <string name="terms_of_use">Terms of Use</string>
     <string name="and">and</string>
